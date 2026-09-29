@@ -1,0 +1,9 @@
+import { formatForDyslexia } from 'public/readerCore';
+
+/**
+ * Wix backend wrapper (optional).
+ * Call from page code when you prefer server-side processing.
+ */
+export function formatText(payload) {
+  return formatForDyslexia(payload);
+}

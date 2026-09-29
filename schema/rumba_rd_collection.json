@@ -1,0 +1,210 @@
+{
+  "collection": {
+    "collection": "rumba_rd_events",
+    "meta": {
+      "collection": "rumba_rd_events",
+      "icon": "analytics",
+      "note": "Evenements anonymes et minimises de la page RUMBA.RD. Aucun texte utilisateur, aucune donnee personnelle, aucun fingerprint.",
+      "display_template": "{{event_type}} - {{created_at}}",
+      "hidden": false,
+      "singleton": false,
+      "archive_field": null,
+      "archive_app_filter": false,
+      "sort_field": null,
+      "accountability": "all",
+      "versioning": false
+    },
+    "schema": {
+      "name": "rumba_rd_events",
+      "comment": "Anonymous minimal RUMBA.RD usage events."
+    }
+  },
+  "fields": [
+    {
+      "collection": "rumba_rd_events",
+      "field": "id",
+      "type": "uuid",
+      "schema": {
+        "name": "id",
+        "table": "rumba_rd_events",
+        "data_type": "uuid",
+        "is_nullable": false,
+        "is_primary_key": true,
+        "has_auto_increment": false,
+        "default_value": "gen_random_uuid()"
+      },
+      "meta": {
+        "collection": "rumba_rd_events",
+        "field": "id",
+        "interface": "input",
+        "special": [
+          "uuid"
+        ],
+        "readonly": true,
+        "hidden": true,
+        "required": true,
+        "sort": 1
+      }
+    },
+    {
+      "collection": "rumba_rd_events",
+      "field": "created_at",
+      "type": "timestamp",
+      "schema": {
+        "name": "created_at",
+        "table": "rumba_rd_events",
+        "data_type": "timestamp with time zone",
+        "is_nullable": false,
+        "default_value": "now()"
+      },
+      "meta": {
+        "collection": "rumba_rd_events",
+        "field": "created_at",
+        "interface": "datetime",
+        "display": "datetime",
+        "special": [
+          "date-created"
+        ],
+        "readonly": true,
+        "hidden": false,
+        "sort": 2
+      }
+    },
+    {
+      "collection": "rumba_rd_events",
+      "field": "event_type",
+      "type": "string",
+      "schema": {
+        "name": "event_type",
+        "table": "rumba_rd_events",
+        "data_type": "character varying",
+        "max_length": 32,
+        "is_nullable": false
+      },
+      "meta": {
+        "collection": "rumba_rd_events",
+        "field": "event_type",
+        "interface": "select-dropdown",
+        "options": {
+          "choices": [
+            {
+              "text": "input_submitted",
+              "value": "input_submitted"
+            },
+            {
+              "text": "download",
+              "value": "download"
+            }
+          ]
+        },
+        "required": true,
+        "sort": 3
+      }
+    },
+    {
+      "collection": "rumba_rd_events",
+      "field": "input_word_count",
+      "type": "integer",
+      "schema": {
+        "name": "input_word_count",
+        "table": "rumba_rd_events",
+        "data_type": "integer",
+        "is_nullable": true
+      },
+      "meta": {
+        "collection": "rumba_rd_events",
+        "field": "input_word_count",
+        "interface": "input",
+        "sort": 4
+      }
+    },
+    {
+      "collection": "rumba_rd_events",
+      "field": "font_family",
+      "type": "string",
+      "schema": {
+        "name": "font_family",
+        "table": "rumba_rd_events",
+        "data_type": "character varying",
+        "max_length": 80,
+        "is_nullable": true
+      },
+      "meta": {
+        "collection": "rumba_rd_events",
+        "field": "font_family",
+        "interface": "input",
+        "sort": 5
+      }
+    },
+    {
+      "collection": "rumba_rd_events",
+      "field": "font_size",
+      "type": "integer",
+      "schema": {
+        "name": "font_size",
+        "table": "rumba_rd_events",
+        "data_type": "integer",
+        "is_nullable": true
+      },
+      "meta": {
+        "collection": "rumba_rd_events",
+        "field": "font_size",
+        "interface": "input",
+        "sort": 6
+      }
+    },
+    {
+      "collection": "rumba_rd_events",
+      "field": "download_format",
+      "type": "string",
+      "schema": {
+        "name": "download_format",
+        "table": "rumba_rd_events",
+        "data_type": "character varying",
+        "max_length": 16,
+        "is_nullable": true
+      },
+      "meta": {
+        "collection": "rumba_rd_events",
+        "field": "download_format",
+        "interface": "select-dropdown",
+        "options": {
+          "choices": [
+            {
+              "text": "HTML",
+              "value": "html"
+            },
+            {
+              "text": "PDF",
+              "value": "pdf"
+            },
+            {
+              "text": "DOCX",
+              "value": "docx"
+            }
+          ]
+        },
+        "sort": 7
+      }
+    },
+    {
+      "collection": "rumba_rd_events",
+      "field": "session_id",
+      "type": "string",
+      "schema": {
+        "name": "session_id",
+        "table": "rumba_rd_events",
+        "data_type": "character varying",
+        "max_length": 36,
+        "is_nullable": false
+      },
+      "meta": {
+        "collection": "rumba_rd_events",
+        "field": "session_id",
+        "interface": "input",
+        "required": true,
+        "sort": 8
+      }
+    }
+  ]
+}

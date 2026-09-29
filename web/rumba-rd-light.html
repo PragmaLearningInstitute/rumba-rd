@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RUMBA.RD · Version en ligne — Pragma Learning Institute</title>
+  <meta name="description" content="Outil de reformatage de texte RUMBA.RD pour lecteurs dyslexiques, exécuté localement dans le navigateur." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <link rel="preconnect" href="https://fonts.cdnfonts.com" />
+  <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/opendyslexic" />
+  <script>
+    (() => {
+      try {
+        const saved = localStorage.getItem("rumba-theme");
+        document.documentElement.dataset.theme = saved === "light" ? "light" : "dark";
+      } catch {
+        document.documentElement.dataset.theme = "dark";
+      }
+    })();
+  </script>
+  <style>
+    :root {
+      --page-light: #fdfdff;
+      --page-dark: #242424;
+      --ink: #050505;
+      --ink-on-dark: #ffffff;
+      --muted: #6e6e6e;
+      --muted-on-dark: rgba(255, 255, 255, 0.68);
+      --border: rgba(5, 5, 5, 0.12);
+      --border-soft: rgba(5, 5, 5, 0.08);
+      --border-dark: rgba(255, 255, 255, 0.16);
+      --surface: #ffffff;
+      --surface-soft: #f7f7f8;
+      --surface-dark: #303030;
+      --surface-dark-soft: #2b2b2b;
+      --accent-gradient: linear-gradient(90deg, hsl(222 92% 60%), hsl(262 90% 62%), hsl(305 88% 60%), hsl(16 96% 56%));
+      --wrap: min(1200px, 92vw);
+      --body-font: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --heading-font: "Space Grotesk", "DM Sans", system-ui, sans-serif;
+      --control-font: "DM Sans", system-ui, sans-serif;
+      --body-size: 18px;
+      --body-line: 1.5;
+      --nav-font-size: 16px;
+      --nav-font-weight: 500;
+      --nav-padding: 0 13px;
+      --nav-radius: 999px;
+      --nav-min-height: 42px;
+      --nav-transition: color .24s ease, background-color .24s ease, box-shadow .24s ease, transform .24s ease, border-color .24s ease;
+      --nav-active-bg: rgba(5, 5, 5, 0.88);
+      --nav-active-color: #ffffff;
+      --nav-hover-bg: rgba(255, 255, 255, 0.7);
+      --control-bg: rgba(255, 255, 255, 0.1);
+      --control-bg-hover: rgba(255, 255, 255, 0.16);
+      --control-border: rgba(255, 255, 255, 0.12);
+      --control-color: rgba(255, 255, 255, 0.82);
+      --chat-font: "Avenir Next", Avenir, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --chat-size: 13px;
+      --topbar-height: 0px;
+      color-scheme: light dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: var(--page-dark);
+      color: var(--ink-on-dark);
+      font-family: var(--body-font);
+      font-size: var(--body-size);
+      font-weight: 400;
+      line-height: var(--body-line);
+      letter-spacing: -0.04em;
+      transition: background-color .28s ease, color .28s ease;
+    }
+
+    html[data-theme="light"] body {
+      background: var(--page-light);
+      color: var(--ink);
+      --control-bg: #eeeeef;
+      --control-bg-hover: #dedee0;
+      --control-border: rgba(5, 5, 5, 0.08);
+      --control-color: #303030;
+    }
+
+    button,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      transform: translateY(-140%);
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #000;
+      color: #fff;
+      font-size: 13px;
+      transition: transform .2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .page {
+      width: var(--wrap);
+      margin: 0 auto;
+      padding: 36px 0 34px;
+    }
+
+    .hero-header {
+      display: grid;
+      gap: 24px;
+      padding: 28px 0 26px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: var(--nav-min-height);
+      padding: 0;
+      border-radius: var(--nav-radius);
+      color: inherit;
+      font-family: var(--heading-font);
+      font-size: 19px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.05em;
+      transition: var(--nav-transition);
+    }
+
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      color: var(--muted-on-dark);
+      font-size: 13px;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+    }
+
+    html[data-theme="light"] .breadcrumb {
+      color: var(--muted);
+    }
+
+    .breadcrumb a {
+      border-bottom: 1px solid currentColor;
+    }
+
+    .title-row {
+      display: grid;
+      gap: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--heading-font);
+      font-size: clamp(42px, 7vw, 88px);
+      font-weight: 700;
+      line-height: .96;
+      letter-spacing: -0.05em;
+      text-transform: uppercase;
+    }
+
+    .subline {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted-on-dark);
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.32;
+      letter-spacing: -0.04em;
+    }
+
+    html[data-theme="light"] .subline {
+      color: var(--muted);
+    }
+
+    .accent-line {
+      width: 100%;
+      height: 3px;
+      margin-top: 10px;
+      border-radius: 999px;
+      background: var(--accent-gradient);
+    }
+
+    .options-shell {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      padding: 8px 0 14px;
+      backdrop-filter: blur(18px);
+    }
+
+    .options-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 50px;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      color: inherit;
+      backdrop-filter: blur(22px) saturate(145%);
+      transition: background-color .34s ease, border-color .34s ease, box-shadow .34s ease, transform .34s ease;
+    }
+
+    .options-left,
+    .option-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .options-left {
+      flex-wrap: wrap;
+    }
+
+    .option-label {
+      color: var(--muted-on-dark);
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    html[data-theme="light"] .option-label {
+      color: var(--muted);
+    }
+
+    .toggle-set {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .nav-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: var(--nav-min-height);
+      padding: var(--nav-padding);
+      border: 1px solid var(--control-border);
+      border-radius: var(--nav-radius);
+      background: var(--control-bg);
+      color: var(--control-color);
+      font-family: var(--control-font);
+      font-size: var(--nav-font-size);
+      font-weight: var(--nav-font-weight);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      text-transform: none;
+      transition: var(--nav-transition);
+      white-space: nowrap;
+    }
+
+    .nav-button:hover,
+    .nav-button:focus-visible {
+      background: var(--control-bg-hover);
+      color: inherit;
+      box-shadow: 0 1px 0 rgba(255,255,255,.16) inset, 0 8px 18px rgba(0,0,0,.08);
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .nav-button.is-active {
+      background: var(--nav-active-bg);
+      color: var(--nav-active-color);
+      box-shadow: 0 1px 0 rgba(255,255,255,.2) inset, 0 5px 14px rgba(5,5,5,.14);
+    }
+
+    .nav-button.is-active:hover,
+    .nav-button.is-active:focus-visible {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .help-button {
+      width: 42px;
+      padding: 0;
+    }
+
+    .theme-button {
+      flex: 0 0 auto;
+      gap: 8px;
+      background: var(--control-bg);
+      color: var(--control-color);
+    }
+
+    .theme-button:hover,
+    .theme-button:focus-visible {
+      background: var(--control-bg-hover);
+      color: inherit;
+    }
+
+    .chat-shell {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      min-height: min(680px, calc(100vh - 320px));
+      max-height: calc(100vh - 252px);
+      overflow: auto;
+      padding: 18px 4px 22px;
+      scroll-behavior: smooth;
+      scrollbar-color: rgba(255,255,255,.28) transparent;
+    }
+
+    html[data-theme="light"] .chat-shell {
+      scrollbar-color: rgba(5,5,5,.26) transparent;
+    }
+
+    .empty-state {
+      display: grid;
+      align-content: center;
+      min-height: 280px;
+      padding: 42px;
+      border: 1px solid var(--border-dark);
+      color: var(--muted-on-dark);
+      line-height: 1.45;
+      letter-spacing: -0.03em;
+    }
+
+    html[data-theme="light"] .empty-state {
+      border-color: var(--border);
+      color: var(--muted);
+    }
+
+    .empty-state strong {
+      color: var(--ink-on-dark);
+      font-weight: 700;
+    }
+
+    html[data-theme="light"] .empty-state strong {
+      color: var(--ink);
+    }
+
+    .engine-error {
+      min-height: 220px;
+      border-color: rgba(255,255,255,.12);
+      background: rgba(31,31,31,.58);
+      box-shadow: 0 18px 42px rgba(0,0,0,.12);
+    }
+
+    html[data-theme="light"] .engine-error {
+      border-color: rgba(5,5,5,.08);
+      background: #eeeeef;
+    }
+
+    .engine-error p + p {
+      margin-top: 8px;
+    }
+
+    html.is-engine-failed .chat-shell {
+      min-height: 280px;
+      max-height: none;
+      padding-bottom: 10px;
+    }
+
+    html.is-engine-failed .composer {
+      margin-top: 10px;
+    }
+
+    html:not(.has-rumba-entry) .chat-shell {
+      min-height: 260px;
+      max-height: none;
+      overflow: visible;
+      padding-bottom: 18px;
+    }
+
+    html:not(.has-rumba-entry) .composer,
+    html.is-engine-failed .composer {
+      position: relative;
+      bottom: auto;
+      background: transparent;
+    }
+
+    .message-pair {
+      display: grid;
+      gap: 12px;
+    }
+
+    .bubble {
+      width: min(760px, 86%);
+      border-radius: 0;
+      letter-spacing: -0.025em;
+      box-shadow: 0 18px 40px rgba(0,0,0,.08);
+    }
+
+    .bubble-input {
+      justify-self: end;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: var(--surface-dark);
+      color: #fff;
+    }
+
+    html[data-theme="light"] .bubble-input {
+      border-color: rgba(5,5,5,.08);
+      background: #eeeeef;
+      color: var(--ink);
+      box-shadow: 0 12px 30px rgba(10,12,18,.06);
+    }
+
+    .bubble-output {
+      justify-self: start;
+      padding: 20px;
+      border: 1px solid rgba(5,5,5,.08);
+      background: #ffffff;
+      color: var(--ink);
+    }
+
+    html[data-theme="light"] .bubble-output {
+      background: #fbfbfc;
+      box-shadow: 0 12px 30px rgba(10,12,18,.05);
+    }
+
+    .message-text,
+    .rumba-output {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .message-text {
+      white-space: pre-wrap;
+      color: inherit;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .rumba-output {
+      font-family: var(--chat-font);
+      font-size: var(--chat-size);
+      line-height: 1.72;
+      letter-spacing: 0;
+    }
+
+    .rumba-output p {
+      margin: 0;
+    }
+
+    .rumba-output strong {
+      font-weight: 800;
+    }
+
+    .bubble-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .mini-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      background: transparent;
+      color: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      transition: var(--nav-transition);
+    }
+
+    html[data-theme="light"] .mini-button {
+      border-color: rgba(5,5,5,.12);
+    }
+
+    .mini-button:hover,
+    .mini-button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .edit-area,
+    .composer-textarea {
+      width: 100%;
+      resize: vertical;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 0;
+      background: rgba(255,255,255,.08);
+      color: inherit;
+      font-family: var(--body-font);
+      font-size: 15px;
+      line-height: 1.5;
+      letter-spacing: -0.03em;
+    }
+
+    .edit-area {
+      min-height: 160px;
+      padding: 14px;
+    }
+
+    html[data-theme="light"] .edit-area,
+    html[data-theme="light"] .composer-textarea {
+      border-color: rgba(5,5,5,.12);
+      background: rgba(255,255,255,.74);
+      color: var(--ink);
+    }
+
+    .edit-area:focus,
+    .composer-textarea:focus {
+      border-color: rgba(5,5,5,.4);
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(5,5,5,.08);
+    }
+
+    html[data-theme="dark"] .edit-area:focus,
+    html[data-theme="dark"] .composer-textarea:focus {
+      border-color: rgba(255,255,255,.42);
+      box-shadow: 0 0 0 3px rgba(255,255,255,.08);
+    }
+
+    .metrics {
+      display: block;
+      margin: 16px 0 0;
+      padding-top: 12px;
+      border-top: 1px solid rgba(5,5,5,.08);
+      color: #858585;
+      font-size: 12px;
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+    }
+
+    .download-row {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .download-button,
+    .send-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 17px;
+      border-radius: 999px;
+      background: #000;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      transition: var(--nav-transition);
+      white-space: nowrap;
+    }
+
+    .download-button:hover,
+    .download-button:focus-visible,
+    .send-button:hover,
+    .send-button:focus-visible {
+      background: #050505;
+      outline: none;
+      transform: translateY(-1px);
+    }
+
+    .download-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      z-index: 10;
+      display: none;
+      gap: 6px;
+      padding: 8px;
+      border: 1px solid rgba(5,5,5,.1);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 18px 42px rgba(0,0,0,.14);
+    }
+
+    .download-row.is-open .download-menu {
+      display: flex;
+    }
+
+    .download-menu button {
+      min-height: 36px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: #f1f1f2;
+      color: #111;
+      font-size: 13px;
+      font-weight: 600;
+      transition: var(--nav-transition);
+    }
+
+    .download-menu button:hover,
+    .download-menu button:focus-visible {
+      background: #000;
+      color: #fff;
+      outline: none;
+    }
+
+    .composer {
+      position: sticky;
+      bottom: 0;
+      z-index: 30;
+      padding: 16px 0 18px;
+      background: linear-gradient(to top, var(--page-dark) 76%, rgba(36,36,36,0));
+      transition: background .28s ease;
+    }
+
+    html[data-theme="light"] .composer {
+      background: linear-gradient(to top, var(--page-light) 76%, rgba(253,253,255,0));
+    }
+
+    .composer-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 12px;
+      padding: 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(31,31,31,.82);
+      box-shadow: 0 1px 0 rgba(255,255,255,.06) inset, 0 22px 52px rgba(0,0,0,.16);
+      backdrop-filter: blur(18px);
+    }
+
+    html[data-theme="light"] .composer-inner {
+      border-color: rgba(5,5,5,.1);
+      background: rgba(255,255,255,.88);
+      box-shadow: 0 1px 0 rgba(255,255,255,.8) inset, 0 22px 52px rgba(10,12,18,.09);
+    }
+
+    .composer-textarea {
+      min-height: 74px;
+      max-height: 220px;
+      padding: 14px 15px;
+    }
+
+    .send-button {
+      align-self: end;
+      min-width: 114px;
+    }
+
+    .send-button[disabled] {
+      cursor: not-allowed;
+      opacity: .48;
+      transform: none;
+    }
+
+    .source-note {
+      width: var(--wrap);
+      margin: 0 auto 34px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-soft);
+      color: #8a8a8a;
+      font-family: var(--body-font);
+      font-size: 8pt;
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: normal;
+    }
+
+    html[data-theme="dark"] .source-note {
+      border-top-color: rgba(255,255,255,.12);
+      color: rgba(255,255,255,.56);
+    }
+
+    .source-note p {
+      margin: 0;
+    }
+
+    .source-note strong {
+      color: inherit;
+      font-weight: 700;
+    }
+
+    .is-hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        padding-top: 20px;
+      }
+
+      .brand-row,
+      .options-bar,
+      .composer-inner {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .brand-row {
+        display: grid;
+      }
+
+      .breadcrumb {
+        justify-content: flex-start;
+      }
+
+      .options-bar {
+        gap: 14px;
+      }
+
+      .options-left,
+      .option-group {
+        align-items: flex-start;
+      }
+
+      .option-group {
+        flex-direction: column;
+      }
+
+      .theme-button {
+        width: 100%;
+      }
+
+      .chat-shell {
+        max-height: none;
+        min-height: 420px;
+      }
+
+      .bubble {
+        width: 100%;
+      }
+
+      .composer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .send-button {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 560px) {
+      :root {
+        --chat-size: 13px;
+      }
+
+      .page {
+        width: min(100% - 28px, 1200px);
+      }
+
+      .source-note {
+        width: min(100% - 28px, 1200px);
+      }
+
+      .hero-header {
+        padding-top: 14px;
+      }
+
+      .empty-state {
+        min-height: 220px;
+        padding: 26px;
+      }
+
+      .nav-button {
+        min-height: 38px;
+        padding: 0 11px;
+        font-size: 14px;
+      }
+
+      .help-button {
+        width: 38px;
+      }
+
+      .download-row,
+      .download-button {
+        width: 100%;
+      }
+
+      .download-menu {
+        right: 0;
+        justify-content: space-between;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#composer">Aller à la zone de saisie</a>
+
+  <main class="page" aria-labelledby="page-title">
+    <header class="hero-header">
+      <div class="brand-row">
+        <a class="brand-link" href="https://pragmalearninginstitute.com/" aria-label="Retour à l'accueil Pragma Learning Institute">
+          <span>Pragma Learning Institute</span>
+        </a>
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="https://pragmalearninginstitute.com/rumba-rd">RUMBA.RD</a>
+          <span aria-hidden="true">/</span>
+          <span>Version en ligne</span>
+        </nav>
+      </div>
+
+      <div class="title-row">
+        <h1 id="page-title">RUMBA.RD · Version en ligne</h1>
+        <p class="subline">Un reformatage local du texte pour explorer des rythmes de lecture plus confortables.</p>
+        <div class="accent-line" aria-hidden="true"></div>
+      </div>
+    </header>
+
+    <section class="options-shell" aria-label="Options de lecture">
+      <div class="options-bar">
+        <div class="options-left">
+          <div class="option-group" role="group" aria-label="Police de lecture">
+            <span class="option-label">Police :</span>
+            <div class="toggle-set" data-toggle-group="font">
+              <button class="nav-button is-active" type="button" data-font="avenir" aria-pressed="true">Avenir Next</button>
+              <button class="nav-button" type="button" data-font="arial" aria-pressed="false">Arial</button>
+              <button class="nav-button" type="button" data-font="opendyslexic" aria-pressed="false">OpenDyslexic</button>
+              <button class="nav-button help-button" type="button" id="help-button" title="En savoir plus sur RUMBA.RD" aria-label="En savoir plus sur RUMBA.RD">?</button>
+            </div>
+          </div>
+
+          <div class="option-group" role="group" aria-label="Taille de lecture">
+            <span class="option-label">Taille :</span>
+            <div class="toggle-set" data-toggle-group="size">
+              <button class="nav-button" type="button" data-size="11" aria-pressed="false">11</button>
+              <button class="nav-button" type="button" data-size="12" aria-pressed="false">12</button>
+              <button class="nav-button is-active" type="button" data-size="13" aria-pressed="true">13</button>
+              <button class="nav-button" type="button" data-size="14" aria-pressed="false">14</button>
+              <button class="nav-button" type="button" data-size="15" aria-pressed="false">15</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="nav-button theme-button" type="button" id="theme-toggle" aria-pressed="false">Mode clair</button>
+      </div>
+    </section>
+
+    <section class="chat-shell" id="chat" aria-live="polite" aria-label="Conversation RUMBA.RD">
+      <div class="empty-state" id="empty-state">
+        <p><strong>Collez un texte pour commencer.</strong><br />Le reformatage s'affichera ici sous forme de réponse, avec les métriques de lecture et les exports disponibles.</p>
+      </div>
+    </section>
+
+    <section class="composer" id="composer" aria-label="Zone de saisie">
+      <form class="composer-inner" id="rumba-form">
+        <textarea class="composer-textarea" id="input-text" placeholder="Colle ou tape ton texte ici..." rows="3" required></textarea>
+        <button class="send-button" id="send-button" type="submit">Envoyer</button>
+      </form>
+    </section>
+  </main>
+
+  <aside class="source-note" aria-label="Information RGPD">
+    <p>Édition open source : la télémétrie est désactivée par défaut. Le formatage et le mode de démonstration sont locaux. Les exports PDF/DOCX et certaines polices chargent des ressources externes. Les comptes et profils sauvegardés utilisent uniquement le serveur configuré par votre administrateur.</p>
+  </aside>
+
+  <script>
+  (async () => {
+    const assetBase = new URL(".", window.location.href).href;
+    const assetUrl = (path) => new URL(path, assetBase).href;
+    const { gaussReformulator } = await import(assetUrl("rumbaEngine.js"));
+    const {
+      exportAsHTML,
+      exportAsPDF,
+      exportAsDOCX,
+    } = await import(assetUrl("rumbaExporter.js"));
+    let trackInput = () => {};
+    let trackDownload = () => {};
+
+    try {
+      const tracker = await import(assetUrl("directusTracker.js?v=20260618-fr-server"));
+      tracker.initTracker();
+      trackInput = tracker.trackInput;
+      trackDownload = tracker.trackDownload;
+    } catch (error) {
+      console.warn("RUMBA.RD tracker unavailable.", error);
+    }
+
+    const state = {
+      font: "avenir",
+      size: 13,
+      entries: [],
+    };
+
+    const fontStacks = {
+      avenir: '"Avenir Next", Avenir, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
+      arial: 'Arial, Helvetica, sans-serif',
+      opendyslexic: '"OpenDyslexic", "OpenDyslexicAlta", Arial, sans-serif',
+    };
+
+    const selectors = {
+      chat: document.getElementById("chat"),
+      empty: document.getElementById("empty-state"),
+      form: document.getElementById("rumba-form"),
+      input: document.getElementById("input-text"),
+      send: document.getElementById("send-button"),
+      theme: document.getElementById("theme-toggle"),
+      help: document.getElementById("help-button"),
+    };
+
+    function applyThemeLabel() {
+      const isLight = document.documentElement.dataset.theme === "light";
+      selectors.theme.textContent = isLight ? "Mode sombre" : "Mode clair";
+      selectors.theme.setAttribute("aria-pressed", String(isLight));
+    }
+
+    function setTheme(theme) {
+      const nextTheme = theme === "light" ? "light" : "dark";
+      document.documentElement.dataset.theme = nextTheme;
+      try {
+        localStorage.setItem("rumba-theme", nextTheme);
+      } catch {}
+      applyThemeLabel();
+    }
+
+    async function loadDesignTokens() {
+      try {
+        const response = await fetch("./pli-design-tokens.json", { cache: "no-cache" });
+        if (!response.ok) return;
+        const tokens = await response.json();
+        const root = document.documentElement.style;
+        const colors = tokens.colors || {};
+        const typography = tokens.typography || {};
+        const buttons = tokens.buttons || {};
+        const layout = tokens.layout || {};
+        const footnote = tokens.footnote || {};
+
+        if (colors.standardPageBackground?.value) root.setProperty("--page-light", colors.standardPageBackground.value);
+        if (colors.teamMemberPageBackground?.value) root.setProperty("--page-dark", colors.teamMemberPageBackground.value);
+        if (colors.textPrimary?.value) root.setProperty("--ink", colors.textPrimary.value);
+        if (colors.textPrimaryOnDark?.value) root.setProperty("--ink-on-dark", colors.textPrimaryOnDark.value);
+        if (colors.textSecondary?.value) root.setProperty("--muted", colors.textSecondary.value);
+        if (colors.textSecondaryOnDark?.value) root.setProperty("--muted-on-dark", colors.textSecondaryOnDark.value);
+        if (colors.borderDefault?.value) root.setProperty("--border", colors.borderDefault.value);
+        if (colors.borderFootnote?.value) root.setProperty("--border-soft", colors.borderFootnote.value);
+        if (colors.accent?.gradient?.value) root.setProperty("--accent-gradient", colors.accent.gradient.value);
+        if (layout.contentMaxWidth?.value) root.setProperty("--wrap", layout.contentMaxWidth.value);
+        if (typography.body?.fontFamily) root.setProperty("--body-font", typography.body.fontFamily);
+        if (typography.headingFamily?.fontFamily) root.setProperty("--heading-font", typography.headingFamily.fontFamily);
+        if (buttons.navigationDesktopLinkNormal?.fontSize) root.setProperty("--nav-font-size", buttons.navigationDesktopLinkNormal.fontSize);
+        if (buttons.navigationDesktopLinkNormal?.fontWeight) root.setProperty("--nav-font-weight", buttons.navigationDesktopLinkNormal.fontWeight);
+        if (buttons.navigationDesktopLinkNormal?.padding) root.setProperty("--nav-padding", buttons.navigationDesktopLinkNormal.padding);
+        if (buttons.navigationDesktopLinkNormal?.borderRadius) root.setProperty("--nav-radius", buttons.navigationDesktopLinkNormal.borderRadius);
+        if (buttons.navigationDesktopLinkNormal?.minHeight) root.setProperty("--nav-min-height", buttons.navigationDesktopLinkNormal.minHeight);
+        if (buttons.navigationDesktopLinkNormal?.transition) root.setProperty("--nav-transition", buttons.navigationDesktopLinkNormal.transition);
+        if (buttons.navigationDesktopLinkActive?.background) root.setProperty("--nav-active-bg", buttons.navigationDesktopLinkActive.background);
+        if (buttons.navigationDesktopLinkActive?.color) root.setProperty("--nav-active-color", buttons.navigationDesktopLinkActive.color);
+        if (buttons.navigationDesktopLinkHover?.background) root.setProperty("--nav-hover-bg", buttons.navigationDesktopLinkHover.background);
+        if (footnote.color) document.querySelector(".source-note")?.style.setProperty("color", footnote.color);
+      } catch (error) {
+        console.warn("RUMBA.RD design tokens unavailable:", error);
+      }
+    }
+
+    function applyReaderOptions() {
+      document.documentElement.style.setProperty("--chat-font", fontStacks[state.font] || fontStacks.avenir);
+      document.documentElement.style.setProperty("--chat-size", `${state.size}px`);
+    }
+
+    function setActiveButton(groupSelector, attribute, value) {
+      document.querySelectorAll(`${groupSelector} .nav-button[${attribute}]`).forEach((button) => {
+        const active = button.getAttribute(attribute) === String(value);
+        button.classList.toggle("is-active", active);
+        button.setAttribute("aria-pressed", String(active));
+      });
+    }
+
+    function formatMetrics(analysis) {
+      const fre = Number(analysis.fleschScore || 0).toFixed(1);
+      const zipf = Math.round(Number(analysis.zipfCommonRatio || 0) * 100);
+      return `FRE : ${fre} · Langue : ${analysis.language || "fr"} · Mots communs : ${zipf}%`;
+    }
+
+    function textWordCount(text) {
+      return (String(text).match(/[A-Za-zÀ-ÖØ-öø-ÿ'’-]+/gu) || []).length;
+    }
+
+    function currentFontFamilyName() {
+      return {
+        avenir: "Avenir Next",
+        arial: "Arial",
+        opendyslexic: "OpenDyslexic",
+      }[state.font] || "Avenir Next";
+    }
+
+    function trackEntryInput(entry) {
+      trackInput({
+        wordCount: textWordCount(entry.text),
+        fontFamily: currentFontFamilyName(),
+        fontSize: state.size,
+      });
+    }
+
+    function trackEntryDownload(format) {
+      trackDownload({
+        format,
+        fontFamily: currentFontFamilyName(),
+        fontSize: state.size,
+      });
+    }
+
+    function currentExportStyle() {
+      return {
+        fontFamily: currentFontFamilyName(),
+        fontSize: state.size,
+      };
+    }
+
+    function createEntry(text, seed = Date.now() % 999999) {
+      const result = gaussReformulator(text, seed);
+      return {
+        id: `rumba-${Date.now()}-${Math.random().toString(16).slice(2)}`,
+        seed,
+        text,
+        result,
+      };
+    }
+
+    function renderEntry(entry) {
+      const pair = document.createElement("article");
+      pair.className = "message-pair";
+      pair.dataset.entryId = entry.id;
+
+      pair.innerHTML = `
+        <div class="bubble bubble-input">
+          <p class="message-text" data-input-text></p>
+          <div class="bubble-actions">
+            <button class="mini-button" type="button" data-edit>✏ éditer</button>
+          </div>
+        </div>
+        <div class="bubble bubble-output">
+          <div class="rumba-output" data-output></div>
+          <span class="metrics" data-metrics></span>
+          <div class="download-row" data-download-row>
+            <button class="download-button" type="button" data-download-toggle>↓ Télécharger ▾</button>
+            <div class="download-menu" role="menu" aria-label="Formats de téléchargement">
+              <button type="button" data-download="html" role="menuitem">HTML</button>
+              <button type="button" data-download="pdf" role="menuitem">PDF</button>
+              <button type="button" data-download="docx" role="menuitem">DOCX</button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      pair.querySelector("[data-input-text]").textContent = entry.text;
+      pair.querySelector("[data-output]").innerHTML = entry.result.htmlText;
+      pair.querySelector("[data-metrics]").textContent = formatMetrics(entry.result.analysis);
+      selectors.chat.append(pair);
+      bindEntry(pair, entry);
+      return pair;
+    }
+
+    function bindEntry(pair, entry) {
+      pair.querySelector("[data-edit]").addEventListener("click", () => enterEditMode(pair, entry));
+      pair.querySelector("[data-download-toggle]").addEventListener("click", () => {
+        const row = pair.querySelector("[data-download-row]");
+        const isOpen = row.classList.toggle("is-open");
+        pair.querySelector("[data-download-toggle]").setAttribute("aria-expanded", String(isOpen));
+      });
+      pair.querySelectorAll("[data-download]").forEach((button) => {
+        button.addEventListener("click", () => {
+          pair.querySelector("[data-download-row]").classList.remove("is-open");
+          downloadEntry(entry, button.dataset.download);
+        });
+      });
+    }
+
+    function enterEditMode(pair, entry) {
+      const inputBubble = pair.querySelector(".bubble-input");
+      inputBubble.innerHTML = `
+        <textarea class="edit-area" data-edit-area></textarea>
+        <div class="bubble-actions">
+          <button class="mini-button" type="button" data-cancel>Annuler</button>
+          <button class="mini-button" type="button" data-reformat>Reformater à nouveau</button>
+        </div>
+      `;
+      const textarea = inputBubble.querySelector("[data-edit-area]");
+      textarea.value = entry.text;
+      textarea.focus();
+      textarea.setSelectionRange(textarea.value.length, textarea.value.length);
+
+      inputBubble.querySelector("[data-cancel]").addEventListener("click", () => {
+        inputBubble.innerHTML = `
+          <p class="message-text" data-input-text></p>
+          <div class="bubble-actions">
+            <button class="mini-button" type="button" data-edit>✏ éditer</button>
+          </div>
+        `;
+        inputBubble.querySelector("[data-input-text]").textContent = entry.text;
+        inputBubble.querySelector("[data-edit]").addEventListener("click", () => enterEditMode(pair, entry));
+      });
+
+      inputBubble.querySelector("[data-reformat]").addEventListener("click", () => {
+        const nextText = textarea.value.trim();
+        if (!nextText) return;
+        entry.text = nextText;
+        entry.seed = Date.now() % 999999;
+        entry.result = gaussReformulator(nextText, entry.seed);
+        inputBubble.innerHTML = `
+          <p class="message-text" data-input-text></p>
+          <div class="bubble-actions">
+            <button class="mini-button" type="button" data-edit>✏ éditer</button>
+          </div>
+        `;
+        inputBubble.querySelector("[data-input-text]").textContent = entry.text;
+        inputBubble.querySelector("[data-edit]").addEventListener("click", () => enterEditMode(pair, entry));
+        pair.querySelector("[data-output]").innerHTML = entry.result.htmlText;
+        pair.querySelector("[data-metrics]").textContent = formatMetrics(entry.result.analysis);
+        trackEntryInput(entry);
+      });
+    }
+
+    function submitText(text) {
+      const entry = createEntry(text);
+      state.entries.push(entry);
+      document.documentElement.classList.add("has-rumba-entry");
+      selectors.empty.classList.add("is-hidden");
+      renderEntry(entry);
+      trackEntryInput(entry);
+      requestAnimationFrame(() => {
+        selectors.chat.scrollTop = selectors.chat.scrollHeight;
+      });
+    }
+
+    async function downloadEntry(entry, format) {
+      const style = currentExportStyle();
+      let exported = false;
+      if (format === "html") {
+        exported = exportAsHTML(entry.result.htmlText, style);
+      } else if (format === "pdf") {
+        exported = await exportAsPDF(entry.result.htmlText, style);
+      } else if (format === "docx") {
+        exported = await exportAsDOCX(entry.result.htmlText, style);
+      }
+
+      if (exported) {
+        trackEntryDownload(format);
+      }
+    }
+
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest("[data-download-row]")) {
+        document.querySelectorAll("[data-download-row].is-open").forEach((row) => row.classList.remove("is-open"));
+      }
+    });
+
+    document.querySelectorAll("[data-font]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.font = button.dataset.font;
+        setActiveButton('[data-toggle-group="font"]', "data-font", state.font);
+        applyReaderOptions();
+      });
+    });
+
+    document.querySelectorAll("[data-size]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.size = Number(button.dataset.size || 13);
+        setActiveButton('[data-toggle-group="size"]', "data-size", state.size);
+        applyReaderOptions();
+      });
+    });
+
+    selectors.help.addEventListener("click", () => {
+      window.open("https://pragmalearninginstitute.com/rumba-rd.html", "_blank", "noopener,noreferrer");
+    });
+
+    selectors.theme.addEventListener("click", () => {
+      const isLight = document.documentElement.dataset.theme === "light";
+      setTheme(isLight ? "dark" : "light");
+    });
+
+    selectors.input.addEventListener("keydown", (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key === "Enter") {
+        event.preventDefault();
+        selectors.form.requestSubmit();
+      }
+    });
+
+    selectors.form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const text = selectors.input.value.trim();
+      if (!text) return;
+      selectors.send.disabled = true;
+      try {
+        submitText(text);
+        selectors.input.value = "";
+      } finally {
+        selectors.send.disabled = false;
+        selectors.input.focus();
+      }
+    });
+
+    applyThemeLabel();
+    applyReaderOptions();
+    loadDesignTokens();
+  })().catch((error) => {
+    console.error("RUMBA.RD initialization failed:", error);
+    document.documentElement.classList.add("is-engine-failed");
+    const chat = document.getElementById("chat");
+    if (chat) {
+      chat.innerHTML = '<div class="empty-state engine-error"><p><strong>RUMBA.RD ne peut pas démarrer.</strong></p><p>Le moteur de reformatage local est momentanément indisponible.</p></div>';
+    }
+    const input = document.getElementById("input-text");
+    const send = document.getElementById("send-button");
+    if (input) {
+      input.disabled = true;
+      input.placeholder = "Le moteur local est indisponible pour le moment.";
+    }
+    if (send) {
+      send.disabled = true;
+    }
+  });
+  </script>
+</body>
+</html>

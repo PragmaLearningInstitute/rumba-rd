@@ -1,0 +1,739 @@
+{
+  "colors": {
+    "standardPageBackground": {
+      "value": "#FDFDFF",
+      "computed": "rgb(253, 253, 255)",
+      "source": "body on /recherche.html and /rumba-rd.html"
+    },
+    "teamMemberPageBackground": {
+      "value": "#242424",
+      "computed": "rgb(36, 36, 36)",
+      "source": "body on /equipe-membre.html?slug=yunjo-an"
+    },
+    "textPrimary": {
+      "value": "#050505",
+      "computed": "rgb(5, 5, 5)",
+      "source": "--ink and body color on light pages"
+    },
+    "textPrimaryOnDark": {
+      "value": "#FFFFFF",
+      "computed": "rgb(255, 255, 255)",
+      "source": "member page h1 and body text"
+    },
+    "textSecondary": {
+      "value": "#6E6E6E",
+      "computed": "rgb(110, 110, 110)",
+      "source": "--muted, hero copy, theme card copy"
+    },
+    "textSecondaryOnDark": {
+      "value": "rgba(255, 255, 255, 0.68)",
+      "computed": "rgba(255, 255, 255, 0.68)",
+      "source": "member page profile paragraph"
+    },
+    "footnoteText": {
+      "value": "#8A8A8A",
+      "computed": "rgb(138, 138, 138)",
+      "source": "aside.source-note on /recherche.html"
+    },
+    "borderDefault": {
+      "value": "rgba(5, 5, 5, 0.12)",
+      "source": "--border"
+    },
+    "borderCard": {
+      "value": "#ECECEC",
+      "computed": "rgb(236, 236, 236)",
+      "source": ".theme cards on /recherche.html and .feature-card on /rumba-rd.html"
+    },
+    "borderArticleCard": {
+      "value": "#EFEFEF",
+      "source": ".card border in research page CSS"
+    },
+    "borderFootnote": {
+      "value": "rgba(5, 5, 5, 0.08)",
+      "computed": "rgba(5, 5, 5, 0.08)",
+      "source": "aside.source-note border-top on /recherche.html"
+    },
+    "borderDarkPage": {
+      "value": "rgba(255, 255, 255, 0.16)",
+      "source": "member page buttons and side surfaces"
+    },
+    "surfaceDefault": {
+      "value": "#FFFFFF",
+      "computed": "rgb(255, 255, 255)",
+      "source": "cards and light buttons"
+    },
+    "surfaceDarkNote": {
+      "value": "#1F1F1F",
+      "computed": "rgb(31, 31, 31)",
+      "source": ".note block on /rumba-rd.html"
+    },
+    "darkNoteMutedText": {
+      "value": "#B7BFCC",
+      "computed": "rgb(183, 191, 204)",
+      "source": ".note paragraph on /rumba-rd.html"
+    },
+    "accent": {
+      "blue": {
+        "value": "hsl(222 92% 60%)",
+        "source": "--c1"
+      },
+      "violet": {
+        "value": "hsl(262 90% 62%)",
+        "source": "--c2"
+      },
+      "magenta": {
+        "value": "hsl(305 88% 60%)",
+        "source": "--c3"
+      },
+      "orange": {
+        "value": "hsl(16 96% 56%)",
+        "source": "--c4"
+      },
+      "gradient": {
+        "value": "linear-gradient(90deg, hsl(222 92% 60%), hsl(262 90% 62%), hsl(305 88% 60%), hsl(16 96% 56%))",
+        "source": "accent variables used across PLI pages"
+      }
+    }
+  },
+  "typography": {
+    "body": {
+      "fontFamily": "\"DM Sans\", system-ui, sans-serif",
+      "fontSize": "18px",
+      "lineHeight": "27px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.05em",
+      "computedLetterSpacingAt18px": "-0.9px",
+      "source": "body on /recherche.html"
+    },
+    "bodyRumba": {
+      "fontFamily": "\"DM Sans\", system-ui, sans-serif",
+      "fontSize": "18px",
+      "lineHeight": "26.1px",
+      "fontWeight": "400",
+      "letterSpacing": "-0.05em",
+      "computedLetterSpacingAt18px": "-0.9px",
+      "source": "body on /rumba-rd.html"
+    },
+    "bodyTeamMember": {
+      "fontFamily": "\"DM Sans\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "lineHeight": "normal",
+      "fontWeight": "400",
+      "letterSpacing": "-0.04em",
+      "computedLetterSpacingAt16px": "-0.64px",
+      "source": "body on /equipe-membre.html?slug=yunjo-an"
+    },
+    "headingFamily": {
+      "fontFamily": "\"Space Grotesk\", sans-serif",
+      "source": "h1 and h2 on audited pages"
+    },
+    "h1Research": {
+      "fontFamily": "\"Space Grotesk\", sans-serif",
+      "fontSize": "82px",
+      "lineHeight": "82px",
+      "fontWeight": "700",
+      "letterSpacing": "-0.05em",
+      "computedLetterSpacing": "-4.1px",
+      "textTransform": "uppercase",
+      "source": "h1 on /recherche.html"
+    },
+    "h1Rumba": {
+      "fontFamily": "\"Space Grotesk\", sans-serif",
+      "fontSize": "88px",
+      "lineHeight": "88px",
+      "fontWeight": "700",
+      "letterSpacing": "-0.05em",
+      "computedLetterSpacing": "-4.4px",
+      "textTransform": "uppercase",
+      "source": "h1 on /rumba-rd.html"
+    },
+    "h1TeamMember": {
+      "fontFamily": "\"Space Grotesk\", sans-serif",
+      "fontSize": "115.2px",
+      "lineHeight": "115.2px",
+      "fontWeight": "700",
+      "letterSpacing": "-0.055em",
+      "computedLetterSpacing": "-6.336px",
+      "textTransform": "uppercase",
+      "color": "#FFFFFF",
+      "maxWidth": "820px",
+      "source": "member profile h1"
+    },
+    "h2Research": {
+      "fontFamily": "\"Space Grotesk\", sans-serif",
+      "fontSize": "50px",
+      "lineHeight": "50px",
+      "fontWeight": "700",
+      "letterSpacing": "-0.05em",
+      "computedLetterSpacing": "-2.5px",
+      "textTransform": "uppercase",
+      "source": "h2 on /recherche.html"
+    },
+    "h2Rumba": {
+      "fontFamily": "\"Space Grotesk\", sans-serif",
+      "fontSize": "51.2px",
+      "lineHeight": "51.2px",
+      "fontWeight": "700",
+      "letterSpacing": "-0.05em",
+      "computedLetterSpacing": "-2.56px",
+      "textTransform": "none",
+      "source": "h2 on /rumba-rd.html"
+    },
+    "leadResearch": {
+      "fontFamily": "\"DM Sans\", system-ui, sans-serif",
+      "fontSize": "20px",
+      "lineHeight": "30px",
+      "fontWeight": "400",
+      "color": "#6E6E6E",
+      "maxWidth": "560px",
+      "source": "hero paragraph on /recherche.html"
+    },
+    "leadRumba": {
+      "fontFamily": "\"DM Sans\", system-ui, sans-serif",
+      "fontSize": "26.88px",
+      "lineHeight": "32.256px",
+      "fontWeight": "400",
+      "color": "#6E6E6E",
+      "maxWidth": "860px",
+      "marginTop": "22px",
+      "source": "hero paragraph on /rumba-rd.html"
+    },
+    "tag": {
+      "fontFamily": "\"Unbounded\", sans-serif",
+      "fontSize": "12px",
+      "lineHeight": "normal",
+      "fontWeight": "400",
+      "textTransform": "uppercase",
+      "color": "#6E6E6E",
+      "source": ".tag on research cards"
+    }
+  },
+  "buttons": {
+    "navigationDesktopContainer": {
+      "width": "min(1200px, calc(100vw - 40px))",
+      "computedWidthAt1280": "1200px",
+      "height": "58px",
+      "padding": "0 8px 0 18px",
+      "gap": "14px",
+      "border": "1px solid rgba(255, 255, 255, 0.72)",
+      "borderRadius": "999px",
+      "background": "rgba(255, 255, 255, 0.88)",
+      "boxShadow": "0 1px 0 rgba(255,255,255,.92) inset, 0 14px 38px rgba(10,12,18,.08), 0 2px 8px rgba(10,12,18,.04)",
+      "backdropFilter": "blur(22px) saturate(145%)",
+      "transition": "background-color .34s ease, border-color .34s ease, box-shadow .34s ease, transform .34s ease",
+      "source": "pli-global-header desktop nav"
+    },
+    "navigationDesktopContainerHover": {
+      "background": "rgba(255, 255, 255, 0.76)",
+      "borderColor": "rgba(255, 255, 255, 0.84)",
+      "boxShadow": "0 1px 0 rgba(255,255,255,.96) inset, 0 22px 52px rgba(10,12,18,.12), 0 3px 12px rgba(10,12,18,.05)",
+      "source": "pli-global-header .nav:hover"
+    },
+    "navigationDesktopContainerScrolled": {
+      "background": "rgba(255, 255, 255, 0.58)",
+      "borderColor": "rgba(255, 255, 255, 0.5)",
+      "boxShadow": "0 1px 0 rgba(255,255,255,.72) inset, 0 18px 46px rgba(10,12,18,.1), 0 2px 10px rgba(10,12,18,.045)",
+      "backdropFilter": "blur(26px) saturate(165%)",
+      "transform": "translateY(-3px)",
+      "source": "pli-global-header.is-scrolled .nav"
+    },
+    "navigationDesktopLinkNormal": {
+      "background": "transparent",
+      "color": "#1F1F1F",
+      "fontFamily": "\"DM Sans\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "500",
+      "lineHeight": "16px",
+      "letterSpacing": "-0.04em",
+      "computedLetterSpacing": "-0.64px",
+      "textTransform": "none",
+      "minHeight": "42px",
+      "padding": "0 13px",
+      "borderRadius": "999px",
+      "transition": "color .24s ease, background-color .24s ease, box-shadow .24s ease, transform .24s ease",
+      "source": "desktop navigation links"
+    },
+    "navigationDesktopLinkHover": {
+      "background": "rgba(255, 255, 255, 0.7)",
+      "color": "#050505",
+      "boxShadow": "0 1px 0 rgba(255,255,255,.86) inset",
+      "transform": "translateY(-1px)",
+      "source": "desktop navigation link hover/focus"
+    },
+    "navigationDesktopLinkActive": {
+      "background": "rgba(5, 5, 5, 0.88)",
+      "color": "#FFFFFF",
+      "fontFamily": "\"DM Sans\", system-ui, sans-serif",
+      "fontSize": "16px",
+      "fontWeight": "500",
+      "lineHeight": "16px",
+      "letterSpacing": "-0.04em",
+      "minHeight": "42px",
+      "padding": "0 13px",
+      "borderRadius": "999px",
+      "boxShadow": "0 1px 0 rgba(255,255,255,.2) inset, 0 5px 14px rgba(5,5,5,.14)",
+      "source": "active desktop navigation link"
+    },
+    "navigationDesktopLinkActiveHover": {
+      "background": "#050505",
+      "color": "#FFFFFF",
+      "transform": "translateY(-1px)",
+      "source": "active desktop navigation link hover/focus"
+    },
+    "navigationBrand": {
+      "fontFamily": "\"Space Grotesk\", \"DM Sans\", system-ui, sans-serif",
+      "fontSize": "19px",
+      "fontWeight": "700",
+      "lineHeight": "1",
+      "letterSpacing": "-0.05em",
+      "minHeight": "42px",
+      "padding": "0 10px",
+      "borderRadius": "999px",
+      "hoverBackground": "rgba(255, 255, 255, 0.72)",
+      "hoverTransform": "translateY(-1px)",
+      "source": "PLI brand link in global header"
+    },
+    "teamMemberBackButton": {
+      "background": "#FFFFFF",
+      "color": "#111111",
+      "border": "1px solid rgba(255, 255, 255, 0.16)",
+      "borderRadius": "999px",
+      "fontSize": "14px",
+      "padding": "0 18px",
+      "source": "member page .back"
+    },
+    "teamMemberActionButton": {
+      "background": "transparent",
+      "color": "#FFFFFF",
+      "border": "1px solid rgba(255, 255, 255, 0.16)",
+      "borderRadius": "999px",
+      "fontSize": "13px",
+      "padding": "10px 16px",
+      "source": "member page .btn links"
+    },
+    "mobileMenuPanel": {
+      "mediaQuery": "max-width: 820px",
+      "position": "fixed",
+      "top": "68px",
+      "leftRight": "14px",
+      "padding": "12px",
+      "border": "1px solid rgba(5, 5, 5, 0.12)",
+      "borderRadius": "18px",
+      "background": "rgba(255, 255, 255, 0.96)",
+      "boxShadow": "0 22px 54px rgba(0,0,0,.12)",
+      "closedState": "opacity: 0; pointer-events: none; transform: translateY(-8px)",
+      "openState": "opacity: 1; pointer-events: auto; transform: translateY(0)",
+      "transition": "opacity .22s ease, transform .22s ease",
+      "source": "pli-global-header mobile rules"
+    }
+  },
+  "layout": {
+    "contentMaxWidth": {
+      "value": "min(1200px, 92vw)",
+      "computedAt1280": "1177.59px",
+      "source": "--wrap and .section/.shell width"
+    },
+    "pageHorizontalPadding": {
+      "value": "implicit via width: min(1200px, 92vw); margin-left/right: auto",
+      "computedAt1280": "51.2031px left and right",
+      "source": ".section on /recherche.html and /rumba-rd.html"
+    },
+    "navigationHorizontalInsetDesktop": {
+      "value": "20px total viewport gutter at width: min(1200px, calc(100vw - 40px))",
+      "computedAt1280": "40px left and right because max-width is 1200px",
+      "source": "pli-global-header nav"
+    },
+    "heroSectionLight": {
+      "padding": "168px 0 96px",
+      "display": "grid",
+      "gap": "92px",
+      "source": ".section.hero on /recherche.html and /rumba-rd.html"
+    },
+    "teamMemberShell": {
+      "width": "min(1200px, 92vw)",
+      "computedAt1280": "1177.59px",
+      "padding": "132px 0 76px",
+      "source": ".shell on /equipe-membre.html?slug=yunjo-an"
+    },
+    "teamMemberProfileLayout": {
+      "display": "grid",
+      "gap": "64px",
+      "marginTop": "54px",
+      "source": ".profile-layout on member page"
+    },
+    "sectionGap": {
+      "largeHeroGap": "92px",
+      "teamProfileGap": "64px",
+      "researchCardGridGap": "20px",
+      "source": "audited sections and card grids"
+    },
+    "footerLegacyTemplate": {
+      "background": "#272727",
+      "color": "#FFFFFF",
+      "marginTop": "80px",
+      "innerWidth": "var(--wrap)",
+      "innerPadding": "50px 0",
+      "innerDisplay": "flex",
+      "innerJustifyContent": "space-between",
+      "linkColor": "#FFFFFF",
+      "source": ".site-footer CSS present in page templates; production also injects a global footer custom element"
+    }
+  },
+  "footnote": {
+    "selector": "aside.source-note",
+    "referencePage": "/recherche.html",
+    "width": "min(1200px, 92vw)",
+    "computedWidthAt1280": "1177.59px",
+    "margin": "0 auto 34px",
+    "computedMarginAt1280": "0px 51.2031px 34px",
+    "paddingTop": "18px",
+    "borderTop": "1px solid rgba(5, 5, 5, 0.08)",
+    "fontFamily": "\"DM Sans\", system-ui, sans-serif",
+    "fontSize": "10.6667px",
+    "cssFontSize": "8pt",
+    "lineHeight": "14.4px",
+    "cssLineHeight": "1.35",
+    "fontWeight": "400",
+    "letterSpacing": "normal",
+    "color": "#8A8A8A",
+    "label": "Source :",
+    "paragraphMargin": "0",
+    "source": "computed from aside.source-note#note-stm"
+  },
+  "components": {
+    "researchThemeCard": {
+      "background": "#FFFFFF",
+      "border": "1px solid #ECECEC",
+      "borderRadius": "0px",
+      "padding": "26px",
+      "minHeight": "240px",
+      "display": "flex",
+      "flexDirection": "column",
+      "fontSize": "18px",
+      "lineHeight": "27px",
+      "source": ".theme on /recherche.html"
+    },
+    "researchArticleCard": {
+      "background": "#FFFFFF",
+      "border": "1px solid #EFEFEF",
+      "borderRadius": "0px",
+      "color": "inherit",
+      "textDecoration": "none",
+      "transition": "transform .28s ease, box-shadow .28s ease, border-color .28s ease",
+      "hoverTransform": "translateY(-6px)",
+      "hoverBoxShadow": "0 20px 40px rgba(0,0,0,.08)",
+      "hoverBorderColor": "#DADADA",
+      "bodyPadding": "28px",
+      "bodyDisplay": "grid",
+      "bodyGap": "16px",
+      "source": ".card CSS on /recherche.html"
+    },
+    "articleTagPill": {
+      "border": "1px solid #EEEEEE",
+      "borderRadius": "999px",
+      "padding": "5px 9px",
+      "color": "#777777",
+      "fontSize": "12px",
+      "source": ".article-tags span on /recherche.html"
+    },
+    "rumbaFeatureCard": {
+      "background": "#FFFFFF",
+      "border": "1px solid #ECECEC",
+      "borderRadius": "0px",
+      "padding": "24px",
+      "height": "260px",
+      "display": "flex",
+      "fontSize": "18px",
+      "lineHeight": "26.1px",
+      "source": "feature card on /rumba-rd.html"
+    },
+    "rumbaDarkNote": {
+      "background": "#1F1F1F",
+      "color": "#FFFFFF",
+      "paragraphColor": "#B7BFCC",
+      "border": "none",
+      "borderRadius": "0px",
+      "fontSize": "18px",
+      "lineHeight": "26.1px",
+      "source": ".note on /rumba-rd.html"
+    },
+    "teamMemberProfile": {
+      "background": "#242424",
+      "textColor": "#FFFFFF",
+      "mutedTextColor": "rgba(255, 255, 255, 0.68)",
+      "contentWidth": "min(1200px, 92vw)",
+      "componentsSeen": [
+        ".side-card",
+        ".portrait",
+        ".side-row",
+        ".actions",
+        ".btn",
+        ".project-card",
+        ".affiliation-group",
+        ".description-flow",
+        ".profile-main"
+      ],
+      "source": "/equipe-membre.html?slug=yunjo-an"
+    }
+  },
+  "outils_page": {
+    "referencePages": [
+      "/outils.html",
+      "/rumba-ex.html"
+    ],
+    "page": {
+      "background": "#FDFDFF",
+      "textColor": "#050505",
+      "mutedTextColor": "#6E6E6E",
+      "lineColor": "rgba(5,5,5,.12)",
+      "contentMaxWidth": "min(1200px, 92vw)",
+      "bodyFontFamily": "\"DM Sans\", system-ui, sans-serif",
+      "bodyFontSize": "18px",
+      "bodyLineHeight": "1.55",
+      "bodyLetterSpacing": "-.05em",
+      "mainPaddingTop": "68px",
+      "source": ":root, body and main on /outils.html"
+    },
+    "hero": {
+      "selector": ".section.hero",
+      "minHeight": "760px",
+      "display": "grid",
+      "gridTemplateColumns": "minmax(0,1.25fr) minmax(360px,.75fr)",
+      "gap": "72px",
+      "alignItems": "stretch",
+      "paddingTop": "130px",
+      "copyMaxWidth": "760px",
+      "copyFontSize": "clamp(21px,2vw,28px)",
+      "copyLineHeight": "1.22",
+      "panelBackground": "#272727",
+      "panelTextColor": "#FFFFFF",
+      "panelBorderRadius": "8px",
+      "panelPadding": "clamp(34px,4vw,58px)",
+      "panelMinHeight": "680px",
+      "source": ".hero and .hero-stats on /outils.html"
+    },
+    "toolsSection": {
+      "selector": "section.section#outils-pli",
+      "sectionPadding": "92px 0",
+      "sectionHead": {
+        "selector": ".section-head",
+        "maxWidth": "760px",
+        "marginBottom": "34px",
+        "descriptionMarginTop": "12px",
+        "descriptionFontSize": "20px",
+        "descriptionLineHeight": "1.32"
+      },
+      "grid": {
+        "selector": ".tools-grid",
+        "display": "grid",
+        "gridTemplateColumns": "repeat(3,minmax(0,1fr))",
+        "gap": "20px",
+        "mobileBreakpoint": "980px",
+        "mobileGridTemplateColumns": "1fr"
+      },
+      "toolCard": {
+        "selector": ".tool-card",
+        "semanticStructure": "article.tool-card > .tool-top(.tool-icon + .tool-year) + .tool-copy(h3 + p) + .tool-actions(rumba-template-button)",
+        "minHeight": "420px",
+        "mobileMinHeight": "340px",
+        "border": "1px solid #ECECEC",
+        "background": "#FFFFFF",
+        "padding": "28px",
+        "display": "flex",
+        "flexDirection": "column",
+        "justifyContent": "space-between",
+        "gap": "24px",
+        "color": "inherit",
+        "textDecoration": "none",
+        "transition": "transform .35s ease, box-shadow .35s ease, background-color .35s ease, border-color .35s ease",
+        "hoverTransform": "translateY(-6px)",
+        "hoverBoxShadow": "0 20px 40px rgba(0,0,0,.08)",
+        "hoverTextColor": "#FFFFFF",
+        "source": ".tool-card on /outils.html"
+      },
+      "rumbaExCard": {
+        "selector": ".tool-card.rumba-ex",
+        "title": "RUMBA.EX",
+        "description": "Générateur d'exercices personnalisés pour construire des séquences lisibles, exportables et ajustées au profil.",
+        "year": "2024",
+        "hoverBackground": "#3A8EFA",
+        "hoverBorderColor": "#3A8EFA",
+        "iconImage": "/assets/rumba-ex-logo.png",
+        "ctaLabel": "Voir RUMBA.EX",
+        "ctaHref": "rumba-ex.html"
+      },
+      "toolTop": {
+        "selector": ".tool-top",
+        "display": "flex",
+        "alignItems": "flex-start",
+        "justifyContent": "space-between",
+        "gap": "18px"
+      },
+      "toolIcon": {
+        "selector": ".tool-icon",
+        "width": "58px",
+        "height": "58px",
+        "borderRadius": "16px",
+        "background": "#F5F5F7",
+        "display": "grid",
+        "placeItems": "center",
+        "overflow": "hidden",
+        "color": "#111111",
+        "fontFamily": "\"Unbounded\", sans-serif",
+        "fontSize": "17px",
+        "fontWeight": "700",
+        "letterSpacing": "-.03em",
+        "imageWidth": "100%",
+        "imageHeight": "100%",
+        "imageObjectFit": "contain"
+      },
+      "toolYear": {
+        "selector": ".tool-year",
+        "color": "#6E6E6E",
+        "fontSize": "14px",
+        "lineHeight": "1"
+      },
+      "toolCopy": {
+        "selector": ".tool-copy",
+        "display": "grid",
+        "gap": "12px",
+        "paragraphFontSize": "19px",
+        "paragraphLineHeight": "1.28"
+      },
+      "toolActions": {
+        "selector": ".tool-actions",
+        "display": "flex",
+        "gap": "12px",
+        "flexWrap": "wrap",
+        "alignItems": "center"
+      },
+      "documentationAction": {
+        "selector": ".tools-doc-action",
+        "display": "flex",
+        "justifyContent": "flex-start",
+        "marginTop": "26px"
+      }
+    },
+    "toolsPageCtaButton": {
+      "component": "rumba-template-button",
+      "instanceSelector": ".tool-card.rumba-ex rumba-template-button",
+      "instanceAttributes": {
+        "label": "Voir RUMBA.EX",
+        "href": "rumba-ex.html",
+        "theme": "dark",
+        "height": "44",
+        "font-size": "15",
+        "show-arrow": "true"
+      },
+      "host": {
+        "display": "inline-block",
+        "maxWidth": "100%",
+        "minWidth": "0",
+        "verticalAlign": "middle",
+        "heightVariable": "44px",
+        "fontSizeVariable": "15px",
+        "paddingXVariable": "15px",
+        "gapVariable": "10px"
+      },
+      "button": {
+        "display": "inline-flex",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "gap": "10px",
+        "width": "max-content",
+        "maxWidth": "100%",
+        "height": "44px",
+        "minHeight": "44px",
+        "padding": "0 15px",
+        "borderRadius": "999px",
+        "border": "1.5px solid hsl(0 0% 100% / .28)",
+        "background": "#0e1118",
+        "color": "#FAFAFA",
+        "textDecoration": "none",
+        "overflow": "hidden",
+        "cursor": "pointer",
+        "boxSizing": "border-box"
+      },
+      "lightThemeButton": {
+        "background": "#FFFFFF",
+        "color": "#111111",
+        "borderColor": "#ECECEC"
+      },
+      "label": {
+        "fontFamily": "\"Unbounded\", system-ui, sans-serif",
+        "fontSize": "15px",
+        "fontWeight": "400",
+        "lineHeight": "1",
+        "letterSpacing": "-0.05em",
+        "whiteSpace": "nowrap"
+      },
+      "icon": {
+        "content": "↗",
+        "fontFamily": "\"DM Sans\", system-ui, sans-serif",
+        "fontSize": "17.7px",
+        "width": "15.75px",
+        "height": "15.75px",
+        "transition": "transform .22s cubic-bezier(.4,0,.2,1)",
+        "hoverTransform": "translateX(2px)"
+      },
+      "gradientRing": {
+        "opacity": ".95",
+        "padding": "1.6px",
+        "background": "conic-gradient(from var(--rtb-angle), hsl(222 92% 60%) 0deg, hsl(262 90% 62%) 90deg, hsl(305 88% 60%) 180deg, hsl(16 96% 56%) 270deg, hsl(222 92% 60%) 360deg)",
+        "hoverAnimation": "rtbSpin 2.2s linear infinite"
+      },
+      "auroraHover": {
+        "opacity": ".50",
+        "filter": "blur(7px) saturate(1.06)",
+        "animation": "rtbAurora .85s cubic-bezier(.22,.61,.36,1) infinite"
+      },
+      "source": "/public/custom-elements/rumba-template-button.js and RUMBA.EX CTA on /outils.html"
+    },
+    "rumbaExParentPage": {
+      "referencePage": "/rumba-ex.html",
+      "pageContentMaxWidth": "min(1380px,92vw)",
+      "sectionPadding": "92px 0",
+      "heroGridTemplateColumns": "minmax(420px,1fr) minmax(320px,440px)",
+      "heroGap": "58px",
+      "heroPaddingTop": "156px",
+      "heroLeadFontSize": "clamp(24px,2.6vw,38px)",
+      "heroLeadLineHeight": "1.08",
+      "metricPanelBackground": "#262626",
+      "tile": {
+        "background": "#FFFFFF",
+        "border": "1px solid #ECECEC",
+        "padding": "30px",
+        "minHeight": "340px",
+        "transition": "transform .28s ease, box-shadow .28s ease, border-color .28s ease, background-color .28s ease, color .28s ease",
+        "hoverTransform": "translateY(-6px)",
+        "hoverBoxShadow": "0 24px 50px rgba(0,0,0,.08)",
+        "hoverBorderColor": "#111111"
+      },
+      "tileMeta": {
+        "fontFamily": "\"Unbounded\", sans-serif",
+        "fontSize": "11px",
+        "textTransform": "uppercase",
+        "letterSpacing": "0",
+        "color": "#777777"
+      },
+      "tileText": {
+        "marginTop": "18px",
+        "maxWidth": "620px",
+        "fontSize": "20px",
+        "lineHeight": "1.22"
+      },
+      "downloadSection": {
+        "selector": ".section.download#telecharger",
+        "gridTemplateColumns": "320px 1fr",
+        "gap": "70px",
+        "imageWidth": "260px",
+        "imageHeight": "260px",
+        "descriptionFontSize": "23px",
+        "descriptionLineHeight": "1.2",
+        "actionsGap": "12px",
+        "actionsMarginTop": "26px"
+      }
+    }
+  },
+  "notes": "Audit réalisé sur les pages publiques /equipe-membre.html?slug=yunjo-an, /rumba-rd.html, /recherche.html, /outils.html et /rumba-ex.html en viewport desktop 1280px. Le site utilise un header global injecté avec la classe pli-global-header ; sur desktop, les règles media min-width: 821px remplacent l'ancien header statique et créent une navigation en capsule liquid glass. La page équipe-membre est rendue côté client : les valeurs ci-dessus ont été mesurées après chargement du profil Yunjo An. Les pages claires partagent le fond #FDFDFF, la largeur var(--wrap) = min(1200px, 92vw) ou min(1380px, 92vw) pour RUMBA.EX, la typographie DM Sans pour le corps et Space Grotesk pour les titres. Le footer de production est un composant global, mais des styles hérités .site-footer restent présents dans certains templates."
+}

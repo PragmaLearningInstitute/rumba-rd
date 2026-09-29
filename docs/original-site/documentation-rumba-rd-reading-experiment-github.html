@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PLI ❘ Expérimentation lecture RUMBA.RD</title>
+  <meta name="description" content="Analyse du protocole Dyslexia-Focused Reading Experiment : RUMBA.RD, OpenFace, calibration, télémétrie et lecture assistée.">
+  <link rel="canonical" href="https://pragmalearninginstitute.com/outils/documentation/rumba-rd-reading-experiment-github">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/pli-favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/pli-favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/pli-apple-touch-icon.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="application-name" content="Pragma Learning Institute">
+  <meta name="apple-mobile-web-app-title" content="PLI">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Pragma Learning Institute">
+  <meta property="og:title" content="PLI ❘ Expérimentation lecture RUMBA.RD">
+  <meta property="og:description" content="Analyse du protocole Dyslexia-Focused Reading Experiment : RUMBA.RD, OpenFace, calibration, télémétrie et lecture assistée.">
+  <meta property="og:url" content="https://pragmalearninginstitute.com/outils/documentation/rumba-rd-reading-experiment-github">
+  <meta property="og:image" content="https://pragmalearninginstitute.com/assets/pli-social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Space+Grotesk:wght@700&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/outils-documentation.css?v=20260506-docux">
+  <meta name="robots" content="index, follow">
+  <meta name="twitter:title" content="PLI ❘ Expérimentation lecture RUMBA.RD">
+  <meta name="twitter:description" content="Analyse du protocole Dyslexia-Focused Reading Experiment : RUMBA.RD, OpenFace, calibration, télémétrie et lecture assistée.">
+  <meta name="twitter:image" content="https://pragmalearninginstitute.com/assets/pli-social-card.png">
+</head>
+<body>
+  <header class="site-header pli-global-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="index.html" aria-label="Accueil Pragma Learning Institute"><span>PLI</span></a>
+      <div class="links" id="pli-global-nav-links"><a href="recherche.html">Publications</a><a href="incubation-programme.html">Formation</a><a href="outils.html">Outils</a><a href="linstitut.html">L'institut</a><a href="equipe.html">Équipe</a></div>
+      <pli-auth-button></pli-auth-button>
+      <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="pli-global-nav-links"><span class="menu-lines" aria-hidden="true"></span></button>
+    </nav>
+  </header>
+
+  <main class="course-layout">
+    <aside class="doc-toc" aria-label="Sommaire">
+      <h2>Sommaire</h2>
+      <a href="#contexte">01 Contexte scientifique</a>
+      <a href="#origine">02 Objectifs du dépôt</a>
+      <a href="#organisation">03 Organisation du code</a>
+      <a href="#openface">04 OpenFace et télémétrie</a>
+      <a href="#calibrage">05 Calibrage du regard</a>
+      <a href="#essai">06 Déroulement d'un essai</a>
+      <a href="#analyse">07 Analyse automatique</a>
+      <a href="#hypotheses">08 Hypothèses RUMBA.RD</a>
+      <a href="#forces-limites">09 Forces et limites</a>
+      <a href="#conclusion">10 Conclusion</a>
+    </aside>
+
+    <article class="doc-article">
+      <header class="doc-article-hero">
+        <p class="eyebrow">Ressource technique · RUMBA.RD</p>
+        <h1>Dyslexia-Focused Reading Experiment</h1>
+        <p>Analyse du dépôt GitHub <em>Dyslexia-Focused-Study-Toolkit-Reading-Experiment</em>, un pipeline expérimental pour étudier la lecture dyslexique avec OpenFace, calibration, QCM, télémétrie et métriques de regard.</p>
+      </header>
+
+      <section class="doc-panel imported-context" id="contexte">
+        <h2>Contexte scientifique</h2>
+        <p>La dyslexie développementale est un trouble neurodéveloppemental qui entraîne des difficultés persistantes dans la reconnaissance des mots et le décodage, malgré une intelligence normale et une scolarisation adéquate. Les personnes dyslexiques présentent souvent une instabilité des mouvements oculaires : fixations courtes ou prolongées selon les tâches, régressions fréquentes et vitesse de lecture réduite.</p>
+        <p>Les mesures oculométriques constituent un indice sensible et non intrusif de la charge cognitive. Elles permettent d'observer le temps de lecture, la durée des fixations, les régressions et la longueur des saccades. Dans le cas de RUMBA.RD, ces indices servent à comparer des textes standards et des textes adaptés.</p>
+        <div class="doc-callout">
+          <strong>Point méthodologique</strong>
+          Le span perceptif, c'est-à-dire la zone de texte utilisable lors d'une fixation, dépend de la langue, de la direction de lecture et du niveau de maîtrise. Ces repères permettent de formuler des hypothèses sur l'effet d'aménagements typographiques.
+        </div>
+      </section>
+
+      <section class="doc-panel imported-context" id="origine">
+        <h2>Origine et objectifs du dépôt</h2>
+        <p>Le dépôt GitHub <strong>TimTrinche/Dyslexia-Focused-Study-Toolkit-Reading-Experiment</strong> s'inscrit dans un projet plus large consacré au développement d'outils gratuits pour étudier et améliorer la lecture chez les personnes dyslexiques.</p>
+        <p>RUMBA.RD vise à élaborer un dispositif expérimental permettant de comparer différents aménagements typographiques : espacement des lettres, mise en forme syllabique, repères de lecture ou algorithmes de formatage. L'objectif est de mesurer leurs effets sur la fluidité oculométrique et la compréhension.</p>
+        <p>L'outil combine une application Python en plein écran, la présentation de textes, des questions de compréhension, l'enregistrement des mouvements oculaires avec OpenFace 2.0 et des scripts d'analyse. Le choix d'OpenFace rend l'expérimentation possible avec une simple webcam, donc sans oculomètre spécialisé.</p>
+        <ul>
+          <li>Dérouler plusieurs essais dans une session unique d'OpenFace.</li>
+          <li>Présenter des tâches de lecture en plein écran.</li>
+          <li>Évaluer la compréhension avec QCM et réponses ouvertes.</li>
+          <li>Enregistrer la télémétrie et les marqueurs d'événements.</li>
+          <li>Exporter <code>markers.csv</code>, <code>gaze.tsv</code>, <code>telemetry.tsv</code> et <code>metrics.csv</code>.</li>
+        </ul>
+      </section>
+
+      <section class="doc-panel" id="organisation">
+        <h2>Organisation du dépôt et description du code</h2>
+        <p>Le cœur du dépôt se trouve dans le script <code>experiment_runner.py</code>. Il orchestre la session expérimentale, vérifie la présence d'OpenFace, charge le plan expérimental, affiche les textes et écrit les sorties d'analyse.</p>
+        <div class="doc-code">
+          <div class="doc-code-header"><span>openface_paths.py</span><span>détection OpenFace</span></div>
+<pre><code># Détection de l'exécutable OpenFace dans le système
+DEFAULT_OPENFACE_DIR = "./OpenFace/build/bin"
+OPENFACE_ENV_VAR = "OPENFACE_DIR"
+OPENFACE_ROOT_ENV_VAR = "OPENFACE_ROOT"
+
+# Si l'utilisateur définit OPENFACE_DIR, on l'utilise.
+# Sinon, on cherche l'exécutable connu.
+openface_root = os.environ.get(OPENFACE_ROOT_ENV_VAR) or find_openface_root(DEFAULT_OPENFACE_DIR)
+os.environ[OPENFACE_ENV_VAR] = openface_root</code></pre>
+        </div>
+        <p>Le fichier <code>plan.csv</code> définit les essais, les conditions et les réponses attendues. Il permet par exemple un ordre contrebalancé AB/BA pour comparer un texte standard et un texte formaté.</p>
+        <div class="doc-code">
+          <div class="doc-code-header"><span>plan.csv</span><span>exemple minimal</span></div>
+<pre><code>id,title,style,color,q1,q2
+A,TextA,plain,#6495ED,2,3
+B,TextB,formatted,#FFA07A,1,4</code></pre>
+        </div>
+        <p>Un journal d'événements enregistre les clics, les débuts de fixation, les changements de phrase et les réponses. Cette granularité permet de reconstruire la chronologie complète de l'expérience.</p>
+        <div class="doc-code">
+          <div class="doc-code-header"><span>MarkerLogger</span><span>horodatage</span></div>
+<pre><code>class MarkerLogger:
+    def log(self, code: str, meta: dict | None = None) -> None:
+        now = time.monotonic_ns()
+        self.marks.append((now, code, meta or {}))</code></pre>
+        </div>
+      </section>
+
+      <section class="doc-panel" id="openface">
+        <h2>Contrôle d'OpenFace et télémétrie</h2>
+        <p>La classe <code>OpenFaceController</code> encapsule le lancement d'OpenFace. Elle démarre le processus de suivi du visage et du regard, puis stocke les données dans un répertoire de sortie. Pendant la lecture, un échantillonneur collecte des informations sur la luminance, la pose de tête et les conditions de mesure.</p>
+        <div class="doc-code">
+          <div class="doc-code-header"><span>OpenFaceController</span><span>processus externe</span></div>
+<pre><code>openface_proc = subprocess.Popen([
+    os.path.join(openface_root, "FaceLandmarkVidMulti"),
+    "-out_dir", tmpdir,
+    "-2Dfp", "-3Dfp", "-pdmparams", "-pose", "-gaze",
+    video_file,
+])</code></pre>
+        </div>
+        <div class="doc-code">
+          <div class="doc-code-header"><span>TelemetrySampler</span><span>échantillonnage</span></div>
+<pre><code>def sample(self):
+    pixel = self.screen.get_pixel_colour(x, y)
+    self.samples.append({
+        "time_ns": time.monotonic_ns(),
+        "screen_lum": luminance(pixel),
+        "head_pose": self.current_pose,
+        "ambient_lum": self.ambient_sensor.get_value(),
+    })</code></pre>
+        </div>
+        <p>Ces mesures permettent d'identifier les variations d'éclairage ou de posture susceptibles d'affecter la détection du regard. Elles renforcent la qualité des comparaisons entre conditions.</p>
+      </section>
+
+      <section class="doc-panel" id="calibrage">
+        <h2>Calibrage et mappage du regard</h2>
+        <p>Avant chaque phase de lecture, l'application effectue une calibration en cinq points. L'objectif est de transformer les coordonnées oculaires produites par OpenFace en coordonnées écran exploitables pour l'analyse.</p>
+        <div class="doc-code">
+          <div class="doc-code-header"><span>calibration.py</span><span>transformation affine</span></div>
+<pre><code>def lstsq_2d(inpts: np.ndarray, outpts: np.ndarray) -> np.ndarray:
+    # Ajoute une colonne de 1 pour modéliser la translation.
+    A = np.hstack([inpts, np.ones((inpts.shape[0], 1))])
+
+    # Résout la régression linéaire A * M = outpts.
+    M, _, _, _ = np.linalg.lstsq(A, outpts, rcond=None)
+    return M  # matrice 3x2 transformant l'oeil vers l'écran</code></pre>
+        </div>
+        <p>La qualité du mapping est ensuite estimée par une erreur moyenne de localisation. Si l'erreur est trop élevée, l'expérimentateur peut refaire la calibration. Après la lecture, les marqueurs et les données de regard sont combinés pour produire <code>gaze.tsv</code>.</p>
+      </section>
+
+      <section class="doc-panel" id="essai">
+        <h2>Déroulement d'un essai</h2>
+        <p>La classe <code>ExperimentApp</code> combine l'interface, les marqueurs, la calibration, la présentation du texte et les questions de compréhension. Une session typique suit une progression très simple.</p>
+        <ol>
+          <li>Saisie d'un identifiant pseudonyme.</li>
+          <li>Calibration en cinq points.</li>
+          <li>Présentation d'un texte standard ou formaté.</li>
+          <li>Questions de compréhension sous forme de QCM.</li>
+          <li>Question ouverte pour recueillir une trace qualitative.</li>
+          <li>Pause, recalibration éventuelle, puis essai suivant.</li>
+        </ol>
+        <div class="doc-code">
+          <div class="doc-code-header"><span>ask_qcm</span><span>compréhension</span></div>
+<pre><code>def ask_qcm(self, question: str, answers: list[str], correct_id: int) -> None:
+    self.marker.log("QCM_START", {"question": question})
+    selected = self.ui.display_qcm(question, answers)
+    self.marker.log("QCM_END", {
+        "response": selected,
+        "correct": selected == correct_id,
+    })</code></pre>
+        </div>
+        <p>À la fin de la session, les fichiers <code>markers.csv</code>, <code>telemetry.tsv</code>, <code>gaze.tsv</code> et <code>metrics.csv</code> sont enregistrés pour l'analyse.</p>
+      </section>
+
+      <section class="doc-panel" id="analyse">
+        <h2>Analyse automatique</h2>
+        <p>Le module d'analyse lit les fichiers de télémétrie et de regard, puis applique un lissage exponentiel pour réduire le bruit. Les fixations sont détectées en repérant des périodes où la dérivée du regard reste sous un seuil pendant une durée minimale.</p>
+        <div class="doc-code">
+          <div class="doc-code-header"><span>analysis.py</span><span>lissage du signal</span></div>
+<pre><code>def smooth_eye(signal: np.ndarray, alpha: float = 0.2) -> np.ndarray:
+    smoothed = np.zeros_like(signal)
+    smoothed[0] = signal[0]
+    for i in range(1, len(signal)):
+        smoothed[i] = alpha * signal[i] + (1 - alpha) * smoothed[i - 1]
+    return smoothed</code></pre>
+        </div>
+        <p>Pour chaque phrase, le pipeline calcule des métriques comme le temps de lecture, la durée moyenne des fixations, le nombre de régressions et la longueur moyenne des saccades. Ces mesures permettent de tester si une condition typographique réduit la charge cognitive ou améliore la compréhension.</p>
+      </section>
+
+      <section class="doc-panel imported-context" id="hypotheses">
+        <h2>Utilisation pour tester les hypothèses RUMBA.RD</h2>
+        <p>Le protocole permet de comparer des textes <em>plain</em> et <em>formatted</em> au sein d'un même participant. La mise en forme peut inclure un repérage syllabique, une modification de l'espacement ou une couleur de suivi.</p>
+        <h3>Hypothèse 1 : span perceptif</h3>
+        <p>En élargissant l'espacement entre les mots et en utilisant une mise en forme syllabique, on peut s'attendre à des saccades plus longues et à un déplacement du regard plus stable, grâce à une réduction de la foule visuelle.</p>
+        <h3>Hypothèse 2 : charge cognitive</h3>
+        <p>Si la mise en forme réduit l'effort de décodage, on devrait observer des fixations plus courtes, un temps de lecture total réduit et un nombre de régressions plus faible.</p>
+        <h3>Hypothèse 3 : compréhension</h3>
+        <p>Une meilleure segmentation visuelle devrait libérer des ressources cognitives pour le traitement sémantique et se traduire par des scores plus élevés aux QCM ou dans les réponses ouvertes.</p>
+      </section>
+
+      <section class="doc-panel imported-context" id="forces-limites">
+        <h2>Forces et limites</h2>
+        <div class="doc-table-wrap">
+          <table class="doc-table">
+            <thead>
+              <tr><th>Forces</th><th>Limites à contrôler</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>OpenFace 2.0 et une simple webcam réduisent fortement le coût d'expérimentation.</td><td>La précision reste limitée pour les micro-saccades ou les mouvements inférieurs à un degré.</td></tr>
+              <tr><td>Le dépôt open-source facilite la reproductibilité et l'adaptation des stimuli.</td><td>La calibration peut se dégrader si le participant modifie fortement sa posture.</td></tr>
+              <tr><td>Le fichier <code>plan.csv</code> permet de définir plusieurs conditions et ordres d'essais.</td><td>La télémétrie à 1 Hz suffit pour les variations lentes mais peut manquer des événements rapides.</td></tr>
+              <tr><td>L'intégration du QCM, des réponses ouvertes et du regard donne une vision plus complète de la lecture.</td><td>Les stimuli doivent être adaptés aux langues, aux directions de lecture et aux profils de lecteurs.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="doc-panel imported-context" id="conclusion">
+        <h2>Conclusion</h2>
+        <p>Le dépôt <em>Dyslexia-Focused-Study-Toolkit-Reading-Experiment</em> représente une avancée importante dans la démocratisation de l'oculométrie appliquée à la lecture. Il propose un outil accessible, libre et adaptable pour conduire des expériences complètes avec ou sans aménagements typographiques.</p>
+        <p>En combinant OpenFace 2.0, calibration, suivi du regard, télémétrie, QCM et analyse automatique, le pipeline répond à un besoin méthodologique clair : rendre les hypothèses de RUMBA.RD testables, reproductibles et discutables par la communauté scientifique.</p>
+        <div class="doc-bottom-actions">
+          <rumba-template-button label="Voir le dépôt GitHub" href="https://github.com/TimTrinche/Dyslexia-Focused-Study-Toolkit-Reading-Experiment/blob/main/README.md" target="_blank" theme="dark" height="46" font-size="16" show-arrow="true"></rumba-template-button>
+          <rumba-template-button label="Toutes les ressources" href="/outils/documentation" theme="blanc" height="46" font-size="16" show-arrow="true"></rumba-template-button>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <pli-global-footer></pli-global-footer>
+  <script src="/public/custom-elements/rumba-template-button.js"></script>
+  <script src="/public/custom-elements/pli-global-footer.js?v=20260821-footer-restored"></script>
+  <script src="/public/custom-elements/pli-auth-button.js"></script>
+  <script src="/public/custom-elements/pli-global-header.js?v=20260821-search-relevance-fuzzy"></script>
+  <script src="/public/access-link-tracker.js?v=20260512-access-links"></script>
+</body>
+</html>

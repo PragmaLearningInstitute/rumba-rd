@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PLI ❘ RUMBA.RD lecture et IA</title>
+  <meta name="description" content="Documentation RUMBA.RD sur Python, GPT, segmentation syllabique et reformulation pédagogique pour une lecture plus accessible et explicable.">
+  <link rel="canonical" href="https://pragmalearninginstitute.com/outils/documentation/rumba-rd-lecture-ia">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/assets/pli-favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/pli-favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/pli-apple-touch-icon.png">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="application-name" content="Pragma Learning Institute">
+  <meta name="apple-mobile-web-app-title" content="PLI">
+
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Pragma Learning Institute">
+  <meta property="og:title" content="PLI ❘ RUMBA.RD lecture et IA">
+  <meta property="og:description" content="Documentation RUMBA.RD sur Python, GPT, segmentation syllabique et reformulation pédagogique pour une lecture plus accessible et explicable.">
+  <meta property="og:url" content="https://pragmalearninginstitute.com/outils/documentation/rumba-rd-lecture-ia">
+  <meta property="og:image" content="https://pragmalearninginstitute.com/assets/pli-social-card.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Space+Grotesk:wght@700&family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/public/outils-documentation.css?v=20260506-docux">
+  <meta name="robots" content="index, follow">
+  <meta name="twitter:title" content="PLI ❘ RUMBA.RD lecture et IA">
+  <meta name="twitter:description" content="Documentation RUMBA.RD sur Python, GPT, segmentation syllabique et reformulation pédagogique pour une lecture plus accessible et explicable.">
+  <meta name="twitter:image" content="https://pragmalearninginstitute.com/assets/pli-social-card.png">
+</head>
+<body>
+  <header class="site-header pli-global-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="index.html" aria-label="Accueil Pragma Learning Institute"><span>PLI</span></a>
+      <div class="links" id="pli-global-nav-links"><a href="recherche.html">Publications</a><a href="incubation-programme.html">Formation</a><a href="outils.html">Outils</a><a href="linstitut.html">L'institut</a><a href="equipe.html">Équipe</a></div>
+      <pli-auth-button></pli-auth-button>
+      <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="pli-global-nav-links"><span class="menu-lines" aria-hidden="true"></span></button>
+    </nav>
+  </header>
+
+  <main class="course-layout">
+    <aside class="doc-toc" aria-label="Sommaire">
+      <h2>Sommaire</h2>
+      <a href="#pourquoi-adapter-les-textes-pour-les-lecteurs-dy">01 Pourquoi adapter les textes pour les lecteurs dyslexiques</a>
+      <a href="#comment-fonctionne-rumba-lecture-avec-python-et-">02 Comment fonctionne Rumba Lecture avec Python et GPT</a>
+      <a href="#pipeline-rumba-lecture-avec-pre-traitement-pytho">03 Figure 3</a>
+      <a href="#figure-1-et-fenetre-de-confort-en-lecture">04 Figure 1 et fenêtre de confort en lecture</a>
+      <a href="#exemples-de-traitement-python-dans-rumba-lecture">05 Exemples de traitement Python dans Rumba Lecture</a>
+      <a href="#format-syllables-py">06 format_syllables.py</a>
+      <a href="#gaussian-focus-py">07 gaussian_focus.py</a>
+      <a href="#comparaison">08 Comparaison</a>
+      <a href="#ce-que-rumba-apporte-aux-enseignants-et-aux-appr">09 Ce que Rumba apporte aux enseignants et aux apprenants</a>
+      <a href="#conclusion">10 Conclusion</a>
+    </aside>
+
+    <article class="doc-article">
+      <header class="doc-article-hero">
+        <p class="eyebrow">Ressource technique · RUMBA.RD</p>
+        <h1>Rumba Lecture et IA pour la lecture dyslexique</h1>
+        <p>Python, GPT, segmentation syllabique et reformulation pédagogique au service d'une lecture plus accessible, plus stable et plus explicable.</p>
+      </header>
+
+      <section class="doc-panel imported-context" id="pourquoi-adapter-les-textes-pour-les-lecteurs-dy">
+<h2>Pourquoi adapter les textes pour les lecteurs dyslexiques</h2>
+      <p>
+        La lecture dyslexique ne relève pas seulement d’une question de vitesse. Elle engage aussi la stabilité du regard, la gestion de l’effort cognitif, la segmentation visuelle et la capacité à conserver du sens sans surcharge. Rumba Lecture a été pensé pour répondre à cet enjeu. L’objectif n’est pas d’appauvrir les contenus, mais de rendre le texte plus lisible, plus progressif et plus soutenable pour les élèves dyslexiques et les lecteurs ayant besoin d’un guidage plus fin.
+      </p>
+
+      <h3>Ce que cherche Rumba Lecture</h3>
+      <p>
+        Rumba ajuste la forme du texte au rythme de lecture du lecteur. Le système combine des traitements Python et une reformulation assistée par IA afin de créer une expérience plus fluide, plus compréhensible et mieux calibrée. Cette logique permet de maintenir un niveau d’exigence pédagogique tout en réduisant les points de friction inutiles.
+      </p>
+
+      <h3>Fonctionnalités principales</h3>
+      <ul>
+        <li><strong>Mesure de lisibilité</strong> pour identifier une zone de confort adaptée au niveau de lecture.</li>
+        <li><strong>Segmentation syllabique</strong> pour mieux distribuer l’attention sur les unités du mot.</li>
+        <li><strong>Focus visuel local</strong> pour stabiliser le regard et rendre certains segments plus facilement repérables.</li>
+        <li><strong>Reformulation contrôlée avec GPT</strong> pour clarifier sans dénaturer le contenu.</li>
+        <li><strong>Variabilité des blocs de lecture</strong> pour éviter un rythme mécanique trop uniforme.</li>
+      </ul>
+</section>
+
+      <section class="doc-panel imported-context" id="comment-fonctionne-rumba-lecture-avec-python-et-">
+<h2>Comment fonctionne Rumba Lecture avec Python et GPT</h2>
+      <p>
+        Le pipeline de Rumba repose sur une articulation simple et robuste. Python prépare le texte, mesure la lisibilité, segmente certains mots et applique des règles de mise en forme. GPT intervient ensuite pour reformuler certains passages lorsque cela peut réduire la charge cognitive ou améliorer la compréhension. Le résultat final vise une lecture plus guidée, plus progressive et plus cohérente avec les besoins des profils dyslexiques.
+      </p>
+</section>
+
+      <section class="doc-panel" id="pipeline-rumba-lecture-avec-pre-traitement-pytho">
+<h2>Figure 3</h2>
+<figure class="doc-media small bw-gradient pipeline-dark">
+      <img src="https://static.wixstatic.com/media/50187e_07c8aa98cbae453aa35b66a138aa038d~mv2.png"
+           alt="Pipeline Rumba Lecture avec Python et GPT pour adapter un texte à la lecture dyslexique"
+           loading="lazy" decoding="async">
+      <figcaption>Pipeline Rumba Lecture avec pré-traitement Python, reformulation par GPT et rendu final adapté à la lecture dyslexique.</figcaption>
+    </figure>
+</section>
+
+      <section class="doc-panel imported-context" id="figure-1-et-fenetre-de-confort-en-lecture">
+<h2>Figure 1 et fenêtre de confort en lecture</h2>
+      <p>
+        La figure ci-dessous représente la logique centrale de Rumba. Elle visualise une fenêtre de confort en lecture, c’est-à-dire la quantité de texte qu’un lecteur peut absorber avant qu’une micro-rupture d’attention, de fatigue ou de compréhension n’apparaisse. Cette fenêtre n’est pas fixe. Elle varie selon le moment, la densité du texte, la difficulté du vocabulaire et l’état cognitif du lecteur.
+      </p>
+
+      <figure class="media small keep-color">
+        <img src="https://static.wixstatic.com/media/50187e_1dcfe475deed42b996df07036e89c2d0~mv2.png"
+             alt="Figure 1 Rumba Lecture avec surface 3D du rythme de lecture et de la fenêtre de confort"
+             loading="lazy" decoding="async">
+        <figcaption>Figure 1 avec surface 3D du flux de lecture. La variabilité observée guide la granularité des segments et les points d’aide à la reformulation.</figcaption>
+      </figure>
+
+      <h3>Comment lire cette figure</h3>
+      <ul>
+        <li><strong>Axe X</strong> pour le temps ou les itérations de lecture.</li>
+        <li><strong>Axe Y</strong> pour différents lecteurs ou différentes simulations de lecture.</li>
+        <li><strong>Axe Z</strong> pour la taille de la fenêtre de confort, donc l’amplitude de lecture soutenable.</li>
+      </ul>
+
+      <p>
+        Cette modélisation permet d’identifier où le texte doit être légèrement ralenti, simplifié ou réorganisé. Lorsque la courbe se stabilise, le système peut étendre la fenêtre de lecture. Lorsqu’elle devient plus instable, Rumba applique des ajustements plus fins. La figure ne sert donc pas à illustrer une idée abstraite. Elle sert à guider des décisions concrètes de mise en forme assistée par IA.
+      </p>
+</section>
+
+      <section class="doc-panel imported-context" id="exemples-de-traitement-python-dans-rumba-lecture">
+<h2>Exemples de traitement Python dans Rumba Lecture</h2>
+      <p>
+        Les scripts suivants illustrent deux briques importantes du système. Le premier exemple montre une logique simple de comptage syllabique. Le second illustre un focus visuel basé sur une gaussienne asymétrique. Dans le projet complet, ces briques sont intégrées à un pipeline plus large centré sur la lecture dyslexique, la lisibilité et la personnalisation.
+      </p>
+</section>
+
+      <section class="doc-panel" id="format-syllables-py">
+<h2>format_syllables.py</h2>
+<div class="doc-code">
+<div class="doc-code-header"><span>format_syllables.py</span><span>extrait technique</span></div>
+<pre>
+$ python format_syllables.py
+→ Mise en forme avec segmentation syllabique et gras adaptatif
+def count_syllables(w):
+    import re
+    w = w.lower()
+    return max(1, len(re.findall(r"[aeiouy]+", w)))
+[OK] Traitement terminé
+      </pre>
+</div>
+</section>
+
+      <section class="doc-panel" id="gaussian-focus-py">
+<h2>gaussian_focus.py</h2>
+<div class="doc-code">
+<div class="doc-code-header"><span>gaussian_focus.py</span><span>extrait technique</span></div>
+<pre>
+$ python gaussian_focus.py
+→ Focus visuel avec gaussienne asymétrique
+import math
+def gaussian_asym(x, mu, sigL, sigR):
+    sig = sigL if x &lt; mu else sigR
+    return math.exp(-0.5*((x-mu)/sig)**2)
+[OK] Surlignage appliqué
+      </pre>
+</div>
+</section>
+
+      <section class="doc-panel" id="comparaison">
+<div class="doc-compare-head">
+        <h2>Comparer un texte standard et un texte adapté</h2>
+        <p class="hint">Exemple simple pour visualiser la segmentation et la mise en relief proposées par Rumba Lecture.</p>
+      </div>
+      <div class="doc-compare-grid">
+        <div class="doc-pane">
+          <header><strong>Texte standard</strong></header>
+          <div class="doc-pane-body">
+            Dans le cadre d’un apprentissage autonome, la compréhension des notions fondamentales suppose un investissement cognitif soutenu qui peut freiner la progression.
+          </div>
+        </div>
+        <div class="doc-pane">
+          <header><strong>Texte adapté</strong></header>
+          <div class="doc-pane-body emphasis reflow">
+            Da le cadre d’un apprentiss<strong>ag</strong><strong>e</strong> <strong>aut</strong><strong>on</strong>ome<br>
+            la compréhension des notions fondamentales supposes<br>
+            une concentration sout<strong>en</strong><strong>u</strong>e qui peu freiner <strong>la</strong><br>
+            <strong>progr</strong><strong>ess</strong><strong>io</strong>n.
+          </div>
+        </div>
+      </div>
+</section>
+
+      <section class="doc-panel imported-context" id="ce-que-rumba-apporte-aux-enseignants-et-aux-appr">
+<h2>Ce que Rumba apporte aux enseignants et aux apprenants</h2>
+      <p>
+        Pour les enseignants, Rumba offre une chaîne de traitement plus explicable, plus reproductible et plus facile à ajuster. Pour les apprenants, l’intérêt réside dans la diminution de certaines frictions visuelles et cognitives, sans renoncer aux contenus scolaires. Le système soutient ainsi une lecture plus accessible, plus régulière et plus compatible avec la progression pédagogique.
+      </p>
+</section>
+
+      <section class="doc-panel imported-context" id="conclusion">
+<h2>Conclusion</h2>
+      <p>
+        Rumba Lecture montre qu’une IA bien cadrée peut améliorer l’accessibilité de la lecture dyslexique sans réduire la richesse du texte. En combinant Python, segmentation syllabique, focus visuel et reformulation GPT, le projet construit une chaîne opérationnelle au service de la lisibilité, de la compréhension et de l’autonomie. L’enjeu n’est pas seulement technique. Il est aussi pédagogique, cognitif et profondément lié à la manière dont nous rendons la connaissance plus accessible.
+      </p>
+</section>
+
+      <div class="doc-bottom-actions">
+        <rumba-template-button label="Toutes les ressources" href="/outils/documentation" theme="blanc" height="46" font-size="16" show-arrow="true"></rumba-template-button>
+        <rumba-template-button label="Ouvrir RUMBA.RD" href="/rumba-rd" theme="dark" height="46" font-size="16" show-arrow="true"></rumba-template-button>
+      </div>
+    </article>
+  </main>
+
+  <pli-global-footer></pli-global-footer>
+  <script src="/public/custom-elements/rumba-template-button.js"></script>
+  <script src="/public/custom-elements/pli-global-footer.js?v=20260821-footer-restored"></script>
+  <script src="/public/custom-elements/pli-auth-button.js"></script>
+  <script src="/public/custom-elements/pli-global-header.js?v=20260821-search-relevance-fuzzy"></script>
+  <script src="/public/access-link-tracker.js?v=20260512-access-links"></script>
+</body>
+</html>

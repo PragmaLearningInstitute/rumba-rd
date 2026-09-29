@@ -1,0 +1,280 @@
+{
+  "edition": "2026-09-28",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 349,
+      "sha256": "926ee931db59cc86dfacbe124390ddc10d3bf97111952d023123659c9a3da2b2"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 405,
+      "sha256": "48fa0d46f50ddbab4b0180581dcc565cfec1e6be369b12f27b7fb857e0762bca"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "bytes": 1151,
+      "sha256": "79f27fbc5c7095c1ff447dff9327aca60ca5c3cfef916f2b1e46a364e1061239"
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1103,
+      "sha256": "e3ac647cf4d5d4f019b7a8c1ae7a5c5ebd5e44ffd2507806a9e1f52950ce48aa"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3737,
+      "sha256": "1f9d390b7204bdc2e6e951c7ad62c588e7304c8990741af96a6314ee0eeca551"
+    },
+    {
+      "path": "SECURITY.md",
+      "bytes": 1706,
+      "sha256": "1d56f66f345d981b2dedab9d281b56f54922ed5e96e2820d15968b3c604b031d"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 1217,
+      "sha256": "403b6bfa79ee60440770cc70922541781624d628153f5ad47ca41a6c5dadd456"
+    },
+    {
+      "path": "desktop/Function.py",
+      "bytes": 22722,
+      "sha256": "2af91c95e3df3b08e2602e1fe086e4fad2f801d9bf32624706b3a16d8fcb7339"
+    },
+    {
+      "path": "desktop/README.md",
+      "bytes": 647,
+      "sha256": "dfe7502baa9a3df53699f2d69f62b3030ad3680284a49222b913cd1e58e79775"
+    },
+    {
+      "path": "desktop/Rumba Reader.spec",
+      "bytes": 1244,
+      "sha256": "b5bed18b2975a7d6064542293fd2821cc033c0420f09138383e5c788efae1bb9"
+    },
+    {
+      "path": "desktop/RumbaReader.spec",
+      "bytes": 917,
+      "sha256": "4cd44f207aecefc0cf5c963ac30baa4db9fb3b514817f899994bb322ba7e9305"
+    },
+    {
+      "path": "desktop/app.py",
+      "bytes": 19909,
+      "sha256": "c378e20ff3981653e96e290451b8f8e6a81336f22321748254773890d1be46ab"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_1024x1024.png",
+      "bytes": 22798,
+      "sha256": "0e40fbc24c08b56261d1f56063bf9b1d43cfb74c3fc457e2a10191f15bac5ccb"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_128x128.png",
+      "bytes": 2596,
+      "sha256": "2dd3a5b617f4fae01a8a551d1054305d2f96f8a271e4c0e30db3818c51fb6bdd"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_128x128@2x.png",
+      "bytes": 4638,
+      "sha256": "203ec187805a2842607c9b97c3b134885e0d223b9372fbdef459d9639be0017c"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_16x16.png",
+      "bytes": 1128,
+      "sha256": "85e5ead378458f9bdd126c4823b91ce8c0044ea809c2d13ae277e2e20a147648"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_16x16@2x.png",
+      "bytes": 1315,
+      "sha256": "82dabb42ab4ffeb9f08cb2dd0b6d8d1b220971bc45da584429cf18e47bbc92fb"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_256x256.png",
+      "bytes": 4638,
+      "sha256": "9986cae55bf4333966abbddc6d27e50ba31d6d820579b131be2872d014fe8b98"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_256x256@2x.png",
+      "bytes": 10552,
+      "sha256": "e17e4ec1b4f38a7796c4ba4f8da691c78179862a87840c7a2933335a15661a7a"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_32x32.png",
+      "bytes": 1315,
+      "sha256": "82dabb42ab4ffeb9f08cb2dd0b6d8d1b220971bc45da584429cf18e47bbc92fb"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_32x32@2x.png",
+      "bytes": 1712,
+      "sha256": "6600d58230f1a39d5f48b9e3546e6061905cc6b8f3efb3e24b6625aee28532b8"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_512x512.png",
+      "bytes": 10552,
+      "sha256": "e17e4ec1b4f38a7796c4ba4f8da691c78179862a87840c7a2933335a15661a7a"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_512x512@2x.png",
+      "bytes": 23011,
+      "sha256": "45e1adc6bae5f964960add0e5152cf60898ac76f422b58257888d3c91db42707"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_64x64.png",
+      "bytes": 1051,
+      "sha256": "b4089b90ce41786656fc27db56426e542c7acc0e9b4740f68defb43caf5fe3bd"
+    },
+    {
+      "path": "desktop/assets/icon.iconset/icon_64x64@2x.png",
+      "bytes": 1661,
+      "sha256": "a7aac8221294c50f24ffc2c868dd7f7c1904afab381c8948355f0ed4e095eabe"
+    },
+    {
+      "path": "desktop/assets/logo_1024.png",
+      "bytes": 8470,
+      "sha256": "9a3d676ef67b5ca454ab9ac1cb6e14aa3300e24c57e4246ddd52ac1b0f7822a4"
+    },
+    {
+      "path": "desktop/assets/logo_minimal.svg",
+      "bytes": 319,
+      "sha256": "949dd8fcf6383ebcb2e5f2dd81e81292d2ccf346866a3dd2ce3f54bb4824f9aa"
+    },
+    {
+      "path": "desktop/formatter.py",
+      "bytes": 1647,
+      "sha256": "beb1fccc15d0fbdb34bb418bd8bd5b607bf1ee494077aab073df32537a7085f4"
+    },
+    {
+      "path": "desktop/requirements-dev.txt",
+      "bytes": 29,
+      "sha256": "946f947939576434e9a0b70aeb5c74c866e1a2af62ddaff005c2f266ddb35f40"
+    },
+    {
+      "path": "desktop/requirements.txt",
+      "bytes": 128,
+      "sha256": "c4357b75721c99ebcd578c9a0c06eaad2365220b6529243e060c4d57cc8f4a08"
+    },
+    {
+      "path": "desktop/scripts/build_macos.sh",
+      "bytes": 530,
+      "sha256": "32692772146e5aaf988b5c274c6e61ab2b388f2db599bc88d3d7da820503cdaa"
+    },
+    {
+      "path": "desktop/scripts/build_windows.bat",
+      "bytes": 513,
+      "sha256": "cde71f3e98877c1d69f3a3efb542aeb9b6d2365df44f72d7f1d46f17aeb1441f"
+    },
+    {
+      "path": "desktop/scripts/run_macos.sh",
+      "bytes": 290,
+      "sha256": "1cbd84868deabfc927640a0b580019d3a4b8fd25252e94cdaead77ab575871e2"
+    },
+    {
+      "path": "desktop/scripts/run_windows.bat",
+      "bytes": 257,
+      "sha256": "f70f52a8eccbdac3ae6da3e435a877e145499f717e80aa58a0946324978819d9"
+    },
+    {
+      "path": "desktop/tests/test_engine.py",
+      "bytes": 1196,
+      "sha256": "3178f44dffa9aaebac01480eff3d8551b5272362d68d83a44c63d65341d8f399"
+    },
+    {
+      "path": "desktop/wix_velo/README.md",
+      "bytes": 856,
+      "sha256": "2a1322fe073582ba54f8616f1949cb650f6c50227490b6d6b3ff9c638be55784"
+    },
+    {
+      "path": "desktop/wix_velo/backend/readerEngine.jsw",
+      "bytes": 239,
+      "sha256": "0451675e88d06b801fdb64ed3668f0290026008c38ee3294c40cb6fc46a4958d"
+    },
+    {
+      "path": "desktop/wix_velo/page_code/readerPage.js",
+      "bytes": 1199,
+      "sha256": "4dec0bf4c400b4b77b2edd299714d0adb9248e4b9eeb844db2aaa7f8e3f327aa"
+    },
+    {
+      "path": "desktop/wix_velo/public/commonWords.js",
+      "bytes": 13186,
+      "sha256": "357b2e473ca91b8f5024cd0a1433119e2c89610340fbe361b76591772b6140c0"
+    },
+    {
+      "path": "desktop/wix_velo/public/readerCore.js",
+      "bytes": 9393,
+      "sha256": "20f5f8be7c885aa2d7f60da03e1347c0c1b8d0d5f2ffae3e03377ee2a38f188f"
+    },
+    {
+      "path": "docs/algorithm.fr.md",
+      "bytes": 3516,
+      "sha256": "53b844d5d1d832130eaed881ba1f6e742585ddaa0f0c1b2a6e61626adc784b7f"
+    },
+    {
+      "path": "docs/evaluation.fr.md",
+      "bytes": 3078,
+      "sha256": "1290f0426ea3b15846a5a9ab0abeeb948ca481bd03b6b572066e5de9ca82f7bf"
+    },
+    {
+      "path": "docs/getting-started.fr.md",
+      "bytes": 4460,
+      "sha256": "58968330b0b23924c3df64b84c677f7be6e262abe91524c459a4fc620cbd66f9"
+    },
+    {
+      "path": "docs/original-site/documentation-rumba-rd-lecture-ia.html",
+      "bytes": 14427,
+      "sha256": "7ba50577293c0a69f831cd93f8c410bd735e976524658c7423b0b60424e90c19"
+    },
+    {
+      "path": "docs/original-site/documentation-rumba-rd-reading-experiment-github.html",
+      "bytes": 18400,
+      "sha256": "b0f892b7f829a28a46b1911b414fe056d9d108ad09328f40d825f7296f3620e5"
+    },
+    {
+      "path": "docs/provenance.fr.md",
+      "bytes": 1494,
+      "sha256": "2efb48b894a25400ed168e1af5065098718e196890f00f95ce67d6460ce5f6cc"
+    },
+    {
+      "path": "package.json",
+      "bytes": 168,
+      "sha256": "3dcd575133bca75aa9ff69a1d360575e0eb235eb6f2a0f0caa2bec14cd504de5"
+    },
+    {
+      "path": "schema/rumba_rd_collection.json",
+      "bytes": 5165,
+      "sha256": "88b62eeded9f95aff18a00d38c9bb48b13108465eb1d68f38c777f9a9c49f947"
+    },
+    {
+      "path": "tests/preservation.test.js",
+      "bytes": 659,
+      "sha256": "0c8062021a1e771d7e8470e1c8b6c0b6346c7d26efacbdffb62a6d17ccbed07b"
+    },
+    {
+      "path": "web/directusTracker.js",
+      "bytes": 3249,
+      "sha256": "62594f5f6ef775bb775aad75478fdc8280d31b70f507afdde076ed005538ce38"
+    },
+    {
+      "path": "web/pli-design-tokens.json",
+      "bytes": 25046,
+      "sha256": "570fb7a3b68dddc7c6b2c272a582bfc02d25b38190939534fcd75b2b5eb7aca8"
+    },
+    {
+      "path": "web/rumba-rd-light.html",
+      "bytes": 37489,
+      "sha256": "c100546eeff76fc09d50af42bcf5c613a47c20fa9cb5667d488120d37461503f"
+    },
+    {
+      "path": "web/rumba-rd.html",
+      "bytes": 18708,
+      "sha256": "5d95128149558eafd2f1eb2ade99cc3d85fb4e149e61da456e76c6d64ffe0c6a"
+    },
+    {
+      "path": "web/rumbaEngine.js",
+      "bytes": 18465,
+      "sha256": "769880ead826cab038bebb453448faf2e67c5a80b975d5bfa8f85c9006454eec"
+    },
+    {
+      "path": "web/rumbaExporter.js",
+      "bytes": 11651,
+      "sha256": "7668c326d45b86dd92617a87840a9a441c89d4a85e0d07721af5ae09fa6255ac"
+    }
+  ]
+}
